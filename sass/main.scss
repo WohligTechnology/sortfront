@@ -1,0 +1,81 @@
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
+@import "../bower_components/angular-material/angular-material.css";
+body {
+
+}
+img.loading {
+  text-align: center;
+  opacity: 1;
+  width: 32px !important;
+  height: auto;
+}
+img {
+  opacity: 0;
+  @include transition(all 300ms ease);
+}
+img.doneLoading {
+  opacity: 1;
+}
+nav li:hover .dropdown-menu {
+  display: block;
+}
+ng-md-icon {
+  transition: all 1s;
+}
+.md-button .md-ripple-container {
+  z-index: 60;
+}
+/* Start writing sass here */
+.md-button {
+  z-index: 100;
+}
+.content {
+  min-height: 500px;
+}
+.plus-icon {
+  font-size: 24px;
+}
+.project {
+
+  // padding: 20px 40px;
+  .single-project {
+    margin-bottom: 50px;
+  }
+}
+.project-detail {
+  margin-top: 50px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.openClose {
+  padding:0px;
+  @include transition(all 0.40s ease-in-out);
+  &.closeSection {
+    height:0px;
+  }
+  &.openSection {
+    height:302px;
+  }
+}
+.openCloseAPI {
+  padding:0px;
+  @include transition(all 0.40s ease-in-out);
+  &.closeSection {
+    height:0px;
+  }
+  &.openSection {
+    height:595px;
+  }
+}
+.md-fab.md-fab-bottom-right.md-primary.fixed {
+  position:fixed;
+}
+.hideme, .hide {
+  display: none;
+}
+
+select {
+  display:block;
+}

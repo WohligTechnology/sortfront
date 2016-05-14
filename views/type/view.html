@@ -1,0 +1,153 @@
+<!-- // POOJA's COde -->
+
+<section class="md-whiteframe-z1 users">
+    <md-list>
+        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th ng-repeat="field in json.fields">{{field.name}}</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="result in json.tableData">
+                    <td ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</td>
+                    <td ng-repeat="action in json.action" ng-click="performAction(action,result)">
+                      <md-button aria-label="Expand" class="md-icon-button" >
+                        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+                      </md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </md-list>
+    <a ui-sref="{{json.createButtonState}}">
+    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
+        <md-icon class="fa fa-plus plus-icon"></md-icon>
+    </md-button>
+  </a>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- <section class="md-whiteframe-z1 users">
+    <md-list>
+        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th ng-repeat="field in json.fields">{{field.name}}</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="result in results">
+                    <td ng-repeat="field in json.fields">{{result[field.tableRef]}}</td>
+                    <td ng-repeat="action in json.action">
+                      <md-button aria-label="Expand" class="md-icon-button" >
+                        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+                      </md-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </md-list>
+    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
+        <md-icon class="fa fa-plus plus-icon"></md-icon>
+    </md-button>
+</section> -->
+
+
+<!-- // JSON BY CHINTAN SIR -->
+
+
+<!-- {
+    "title": "All Users",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [
+      {
+        "name":"id",
+        "isSort":"",
+        "tableRef":"_id"
+      },
+      {
+        "name":"name",
+        "isSort":"",
+        "tableRef":"to"
+      },
+      {
+        "name":"email",
+        "isSort":"",
+        "tableRef":"from"
+      },
+      {
+        "name":"contact",
+        "isSort":"",
+        "tableRef":"reason"
+      }
+
+    ],
+    "action": [
+      {
+        "name":"edit",
+        "icon":"mode_edit",
+        "color":"blue",
+        "action":"editUser"
+      },
+      {
+        "name":"delete",
+        "icon":"delete",
+        "color":"red",
+        "action":"deleteUser"
+      },
+      {
+        "name":"print",
+        "icon":"print",
+        "color":"red",
+        "action":"print"
+      }
+    ],
+    "button": [
+      {
+        "name":"excelexport",
+        "icon":"print",
+        "color":"blue",
+        "action":"excelexport"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+
+    ],
+    "filter": [
+      {
+        "name":"category",
+        "url":"http://192.168.1.127:1337/Accounts/getAll"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+    "apiCall": {
+        "url": "http://192.168.1.127:1337/Accounts/getAll",
+        "params": ""
+    }
+} -->

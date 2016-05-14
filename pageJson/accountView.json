@@ -1,0 +1,46 @@
+{
+    "title": "All Accounts",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [
+      {
+        "name":"id",
+        "isSort":"",
+        "tableRef":"_id"
+      },
+      {
+        "name":"name",
+        "isSort":"",
+        "tableRef":"to"
+      },
+      {
+        "name":"email",
+        "isSort":"",
+        "tableRef":"from"
+      },
+      {
+        "name":"contact",
+        "isSort":"",
+        "tableRef":"reason"
+      }
+
+    ],
+    "action": [
+      {
+        "name":"edit",
+        "icon":"mode_edit",
+        "color":"blue",
+        "action":"editUser"
+      },
+      {
+        "name":"delete",
+        "icon":"delete",
+        "color":"red",
+        "action":"deleteUser"
+      }
+    ],
+    "apiCall": {
+        "url": "http://192.168.1.127:1337/Accounts/getAll",
+        "params": ""
+    }
+}

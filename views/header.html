@@ -1,0 +1,17 @@
+<!-- <md-button class="md-icon-button" aria-label="Settings">
+      <i class="fa fa-bars"></i>
+</md-button> -->
+<h2>
+  <span ng-bind="template.title"></span>
+</h2>
+<span flex></span>
+
+<md-autocomplete
+          md-search-text="searchForm.name"
+          md-items="item in ctrl.querySearch(searchForm.name)"
+          md-item-text="item.display"
+          md-min-length="0"
+          placeholder="Search"
+          >
+      </md-autocomplete>
+<md-button class="md-warn md-raised">Log Out</md-button>

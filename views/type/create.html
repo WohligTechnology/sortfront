@@ -1,0 +1,88 @@
+<section>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{json.title}}</strong>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <form name="plan">
+                        <div class="form-group" ng-repeat="field in json.fields track by $index">
+                            <div ng-if="field.type=='text' || field.type=='email'">
+                                <label for="{{field.id}}"><b>{{field.name}}</b></label>
+                                <input name="{{field.name}}" ng-model="field.model" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
+                            <!-- // SELECT -->
+                            <div ng-if="field.type=='selectFromTable'">
+                                <label for="{{field.id}}">{{field.name}} </label>
+                                <br>
+                                <!-- <select ng-model="field.model" ng-options="item._id as item.name for item in field.url">
+                                </select> -->
+                                <select ng-model="field.model">
+                                    <option value="">SELECT</option>
+                                    <option ng-repeat="item in field.url" value="{{item._id}}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <br>
+                            </div>
+                            <!-- // SELECT FROM TABLE-->
+                            <div ng-if="field.type=='select'">
+                                <label for="{{field.id}}">{{field.name}} </label>
+                                <br>{{optionitem}}
+                                <select ng-model="field.model" ng-options="item.value as item.name for item in field.url">
+                                </select>
+
+                                <br>
+                            </div>
+
+                            <div ng-if="field.type=='image'">
+
+                              {{field}}
+                                <label for="">Upload Image</label>
+
+                                <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+                                <upload-image ng-model="field.model"></upload-image>
+
+
+                            </div>
+                        </div>
+                        <div class="upload-img text-center mar30">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !plan.$valid }" ng-click="makeReadyForApi()">Save</button>
+                            <a ui-sref="{{json.action[1].stateName}}">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                        </div>
+                        <!-- <button class="btn btn-sm btn-info" ng-click="makeReadyForApi()" >
+                          API</button> -->
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- <div class="text-center" ng-show="formComplete">
+              <h3>Submitted Successfully, Thank You!</h3>
+          </div> -->
+
+        </div>
+    </div>
+</section>
+
+
+<!-- <div class="form-group">
+<label for="exampleInputName2">Name</label>
+<input name="name" capitalize-first required ng-model="results.tableRef.from" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
+<div class="error-msg" ng-show="plan.name.$error.required && plan.name.$touched">Please Enter Your Name.</div>
+</div> -->
+<!-- <div class="form-group">
+<label for="exampleInputName2">Name</label>
+<input name="email" capitalize-first required ng-model="results.tableRef.from" type="text" class="form-control" id="exampleInputName2" placeholder="Enter email">
+<div class="error-msg" ng-show="plan.name.$error.required && plan.name.$touched">Please Enter Your Name.</div>
+</div> -->
+<!-- <div class="form-group">
+<label>Description</label>
+<textarea name="description" ng-model="results.tableRef.to" class="form-control" required></textarea>
+<div class="error-msg" ng-show="plan.description.$error.required && plan.description.$touched">Please Enter Description.
+</div>
+</div> -->

@@ -1,0 +1,41 @@
+{
+  "name": "Sortang",
+  "version": "0.0.1",
+  "homepage": "https://www.wohlig.com",
+  "authors": [
+    "tushar@wohlig.com"
+  ],
+  "description": "Sort Angular",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-flexslider": "~1.3.2",
+    "angular-sanitize": "~1.4.3",
+    "angular-ui": "~0.4.0",
+    "bourbon": "~4.2.5",
+    "font-awesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.0",
+    "ui-router": "~0.2.15",
+    "angular-animate": "~1.4.6",
+    "angular-aria": "~1.4.8",
+    "angular-material": "~1.0.1",
+    "ace-builds": "https://github.com/ajaxorg/ace-builds.git#~1.2.2",
+    "angular-material-icons": "https://github.com/klarsys/angular-material-icons.git#~0.6.0",
+    "svg-morpheus": "https://github.com/alexk111/SVG-Morpheus.git#~0.1.8",
+    "angular-ui-sortable": "~0.13.4",
+    "angular-clipboard": "~1.2.1",
+    "js-beautify": "https://github.com/beautify-web/js-beautify.git#~1.5.10",
+    "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git"
+  },
+  "resolutions": {
+    "angular": "1.4.8"
+  }
+}

@@ -1,0 +1,44 @@
+.upload-img {
+  .btn-upload input {
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+}
+
+.btn-upload {
+  position: relative;
+  overflow: hidden;
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter:alpha(opacity=0);
+  }
+}
+.upload-img {
+  .btn-upload input {
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+}
+
+.btn-upload {
+  position: relative;
+  overflow: hidden;
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter:alpha(opacity=0);
+  }
+}

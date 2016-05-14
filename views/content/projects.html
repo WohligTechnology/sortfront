@@ -1,0 +1,67 @@
+<section>
+  <div class="api-section md-whiteframe-z1 mb20" layout-fill layout="column"  ng-repeat="project in projects|filter:searchForm.name|orderBy:'name'">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>{{project.name}} <span ng-if="project.Api.length">({{project.Api.length}})</span>
+            </span>
+        </h2>
+        <span flex></span>
+        <div class="md-list-item-inner">
+          <ng-md-icon class="" icon="check_circle" ng-if="project.status==3" size="20"></ng-md-icon>
+          <ng-md-icon class="" icon="error" ng-if="project.status==2" size="20"></ng-md-icon>
+          <ng-md-icon class="" icon="warning" ng-if="project.status==1" size="20"></ng-md-icon>
+          <md-button class="md-raised" href="" ng-if="project._id">TEST</md-button>
+          <md-button class="md-raised" href="#/api/{{project._id}}" ng-if="project._id">Open</md-button>
+        </div>
+        <md-button aria-label="Expand" ng-click="expandProject(project)" class="md-icon-button">
+          <ng-md-icon class="" icon="unfold_more" size="20" style="fill:white;"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="Delete" class="md-icon-button" ng-click="deleteProject(project);" ng-if="project._id">
+          <ng-md-icon class="" icon="delete" size="20" style="fill:white;"></ng-md-icon>
+        </md-button>
+        <md-button aria-label="Save" class="md-icon-button" ng-click="saveProject(project);" ng-if="!project._id && projectForm.$valid">
+          <ng-md-icon class="" icon="save" size="20" style="fill:white;"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-content flex layout-padding ng-if="project.expand" >
+      <div class="single-project">
+        <form  name="projectForm">
+          <div class="project-detail" layout="row">
+            <md-input-container class="md-block" flex-gt-md>
+              <label>Project Name</label>
+              <input name="name" ng-model="project.name" required type="text">
+              <div ng-messages="projectForm.name.$error">
+                <div ng-message="required">Name is required.</div>
+              </div>
+            </md-input-container>
+            <div flex="5" hide-sm hide-xs></div>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Project Alias - {{mockURL+project.alias}}</label>
+              <input name="alias" ng-model="project.alias" required type="text">
+              <div ng-messages="projectForm.alias.$error">
+                <div ng-message="required">Alias is required.</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout="row">
+            <md-input-container class="md-block" flex-gt-md>
+              <label>URL</label>
+              <input name="url" ng-model="project.url" required type="url">
+              <div ng-messages="projectForm.url.$error">
+                <div ng-message="required">This is required and should be a valid url.</div>
+              </div>
+            </md-input-container>
+          </div>
+        </form>
+        <md-card-actions class="layout-row">
+          <md-button class="md-raised md-primary" ng-click="saveProject(project)" ng-if="projectForm.$valid">SAVE</md-button>
+          <md-button  ng-click="copyMockUrl(project)">Copy Mock URL</md-button>
+          <md-button ng-click="copyLiveUrl(project)">Copy Live URL</md-button>
+        </md-card-actions>
+      </div>
+    </md-content>
+  </div>
+
+</section>

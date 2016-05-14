@@ -1,0 +1,86 @@
+<div  ui-sortable="sortableOptions" ng-model="apis">
+
+  <div class="api-section md-whiteframe-z1 mb20" ng-repeat="api in apis|filter:searchForm">
+
+    <div layout-fill layout="column">
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>
+            <span ng-bind="api.name">Title</span>
+          </h2>
+          <span flex></span>
+          <!-- <ng-md-icon class="" icon="check" size="20" style="fill:white;"></ng-md-icon> -->
+          <md-button class="md-raised" ng-if="api._id">Test</md-button>
+          <md-button aria-label="Expand" class="md-icon-button" ng-click="expandApi(api)">
+            <ng-md-icon class="" icon="unfold_more" size="20" style="fill:white;"></ng-md-icon>
+          </md-button>
+          <md-button aria-label="Delete" class="md-icon-button" ng-click="deleteApi(api)" ng-if="api._id">
+            <ng-md-icon class="" icon="delete" size="20" style="fill:white;"></ng-md-icon>
+          </md-button>
+          <md-button aria-label="Delete" class="md-icon-button" ng-click="copyApi(api,$index)" ng-if="api._id">
+            <ng-md-icon class="" icon="content_copy" size="20" style="fill:white;"></ng-md-icon>
+          </md-button>
+          <md-button aria-label="Delete" class="md-icon-button" ng-click="saveApi(api)" ng-if="!api._id && userForm.$valid">
+            <ng-md-icon class="" icon="save" size="20" style="fill:white;"></ng-md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content ng-if="api.expand" flex layout-padding>
+        <form name="userForm">
+          <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Name</label>
+              <input name="name" ng-model="api.name" required>
+              <div ng-messages="userForm.name.$error">
+                <div ng-message="required">Name is required.</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Type</label>
+              <md-select ng-model="api.type">
+                <md-option value="get">
+                  GET
+                </md-option>
+                <md-option value="post">
+                  POST
+                </md-option>
+                <md-option value="put">
+                  PUT
+                </md-option>
+                <md-option value="delete">
+                  DELETE
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <md-input-container class="md-block">
+            <label>URL -
+              {{project.url+"/"}}{{api.url}}</label>
+            <input name="url" ng-model="api.url" required>
+            <div ng-messages="userForm.url.$error">
+              <div ng-message="required">Url is required.</div>
+            </div>
+          </md-input-container>
+
+          <div class="testing-playground" layout-gt-sm="row">
+            <div class="" flex-gt-sm jsoneditor model="request" ng-if="api.Response"></div>
+            <div class="" flex-gt-sm jsoneditor model="response" ng-if="api.Response"></div>
+          </div>
+
+          <md-input-container class="md-block">
+            <label>Comment</label>
+            <textarea columns="1" md-maxlength="150" ng-model="api.comment" rows="5"></textarea>
+          </md-input-container>
+
+          <md-button class="md-raised md-primary" ng-click="saveApi(api)" ng-if="userForm.$valid">Save</md-button>
+        </form>
+      </md-content>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- <md-button aria-label="Add Projects" class="md-fab md-fab-bottom-right md-primary fixed" ng-click="createApi()">
+  <ng-md-icon icon="add" size="36" style="fill: white;line-height:80px;"></ng-md-icon>
+</md-button> -->

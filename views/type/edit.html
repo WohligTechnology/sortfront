@@ -1,0 +1,87 @@
+<section>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>{{json.title}}</strong>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-8">
+
+                    <form name="plan">
+                        <div class="form-group" ng-repeat="field in json.fields">
+                            <!-- <div ng-repeat="field in json.editData track by $index"> -->
+                            <div ng-if="field.type=='text' || field.type=='email'">
+
+                                <label for="{{field.id}}">{{field.name}}</label>
+                                <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
+                            <div ng-if="field.type=='hidden'">
+                                <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
+
+                            <!-- // SELECT -->
+                            <div ng-if="field.type=='selectFromTable'">
+                                <label for="{{field.id}}">{{field.name}} </label>
+                                <br>
+                                <select ng-model="json.editData[field.model]">
+                                    <option ng-repeat="item in field.url" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <br>
+                            </div>
+                            <!-- // SELECT FROM TABLE-->
+                            <div ng-if="field.type=='select'">
+                                <label for="{{field.id}}">{{field.name}} </label>
+                                <br>
+                                <select ng-model="json.editData[field.model]">
+                                    <option ng-repeat="item in field.url" value="{{item.name}}" ng-selected="{{ item.name.Selected == true }}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                                <br>
+                            </div>
+
+                            <div ng-if="field.type=='image'">
+
+                          
+                                <label for="">Upload Image</label>
+
+                                <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+                                <upload-image ng-model="field.model"></upload-image>
+
+
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <!-- <div class="form-group">
+              {{results[json.fields.tableRef]}}
+              <label for="exampleInputName2">Name</label>
+              <input name="name" capitalize-first required ng-model="results.tableRef.from" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
+              <div class="error-msg" ng-show="plan.name.$error.required && plan.name.$touched">Please Enter Your Name.</div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea name="description" ng-model="results.tableRef.to" class="form-control" required></textarea>
+              <div class="error-msg" ng-show="plan.description.$error.required && plan.description.$touched">Please Enter Description.
+              </div>
+            </div> -->
+                        <div class="upload-img text-center mar30">
+                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !plan.$valid }" ng-click="makeReadyForApi()">Save</button>
+                            <a ui-sref="{{json.action[1].stateName}}">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- <div class="text-center" ng-show="formComplete">
+              <h3>Submitted Successfully, Thank You!</h3>
+          </div> -->
+
+        </div>
+    </div>
+</section>

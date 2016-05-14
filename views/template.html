@@ -1,0 +1,19 @@
+<div layout="row">
+
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')">
+    <div class="template aside" ng-include="template.aside"></div>
+  </md-sidenav>
+
+  <div layout="column" layout-fill>
+  <md-toolbar>
+    <div class="template header md-toolbar-tools" ng-include="template.header"></div>
+  </md-toolbar>
+  <md-content flex layout-padding>
+      <div class="template content" ng-include="template.content"></div>
+    <footer>
+      <div class="template footer" ng-include="template.footer"></div>
+    </footer>
+  </md-content>
+</div>
+
+</div>

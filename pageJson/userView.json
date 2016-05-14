@@ -1,0 +1,82 @@
+{
+    "title": "All Users",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [
+      {
+        "name":"Name",
+        "isSort":"",
+        "tableRef":"name"
+      },
+      {
+        "name":"Email",
+        "isSort":"",
+        "tableRef":"email"
+      },
+      {
+        "name":"Accesslevel",
+        "isSort":"",
+        "tableRef":"accesslevel"
+      },
+      {
+        "name":"Team",
+        "isSort":"",
+        "tableRef":"team.name"
+      }
+
+    ],
+    "action": [
+      {
+        "name":"edit",
+        "icon":"mode_edit",
+        "color":"blue",
+        "action":"editUser",
+        "jsonPage":"editUser",
+        "fieldsToSend":["_id","name"],
+        "callFindOne":"creato/findOne"
+      },
+      {
+        "name":"delete",
+        "icon":"delete",
+        "color":"red",
+        "action":"deleteUser"
+      },
+      {
+        "name":"print",
+        "icon":"print",
+        "color":"red",
+        "action":"print"
+      }
+    ],
+    "button": [
+      {
+        "name":"excelexport",
+        "icon":"print",
+        "color":"blue",
+        "action":"excelexport"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+    "filter": [
+      {
+        "name":"category",
+        "url":"http://192.168.1.127:1337/Accounts/getAll"
+      },
+      {
+        "name":"uploadcsv",
+        "icon":"delete",
+        "color":"red",
+        "action":"uploadcsv"
+      }
+    ],
+    "apiCall": {
+        "url": "creato/findLimited",
+        "params": ""
+    },
+    "createButtonState":"page({jsonName:'createUser'})"
+}
