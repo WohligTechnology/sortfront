@@ -1,11 +1,11 @@
 {
-  "name": "Sortang",
+  "name": "Sortfront",
   "version": "0.0.1",
   "homepage": "https://www.wohlig.com",
   "authors": [
     "tushar@wohlig.com"
   ],
-  "description": "Sort Angular",
+  "description": "Sort Front",
   "license": "MIT",
   "ignore": [
     "**/.*",

@@ -41,9 +41,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam7 = jsonArr[7];
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
-    console.log(jsonArr);
-    $http.get("./pageJson/" + jsonName + ".json").success(function(data) {
 
+    $http.get("./pageJson/" + jsonName + ".json").success(function(data) {
 
         _.each(data.urlFields, function(n, key) {
             urlParams[n] = jsonArr[key + 1];
@@ -93,6 +92,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             console.log("hij");
         }
         $scope.template = TemplateService.jsonType(data.pageType);
+    }).error(function(data) {
+      console.log(data);
     });
 
     // ACTION
