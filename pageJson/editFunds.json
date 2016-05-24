@@ -1,6 +1,6 @@
 {
     "title": "Edit Funds",
-    "jsonPage": "editFunds",
+    "jsonPage": "viewFunds",
     "desciption": "",
     "pageType": "edit",
     "urlFields": ["_id"],
@@ -56,11 +56,11 @@
         "stateName": "page({jsonName:'viewFunds'})"
     }],
     "apiCall": {
-        "url": "funds/save",
+        "url": "investmenttype/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "funds/getOne",
+        "url": "investmenttype/getOne",
         "params": "_id"
     },
     "sidemenu": [{

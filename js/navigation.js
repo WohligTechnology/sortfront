@@ -6,9 +6,9 @@ var navigationservice = angular.module('navigationservice', [])
 
 .factory('NavigationService', function($http) {
   var navigation = [{
-    name: "Users",
+    name: "Funds",
     classis: "active",
-    link: "#/users",
+    link: "#/page/viewFunds",
     subnav: []
   }, {
     name: "Projects",
@@ -32,6 +32,7 @@ var navigationservice = angular.module('navigationservice', [])
       return menuname;
     },
     saveApi: function(data,apiName, successCallback, errorCallback) {
+      console.log(data);
       $http.post(adminurl + apiName, data).success(successCallback).error(errorCallback);
     },
     deleteProject: function(apiName,urlParams, successCallback, errorCallback) {

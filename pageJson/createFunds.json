@@ -27,10 +27,10 @@
             "id": "input3",
             "validation": [],
             "url": [{
-              "value":"equity",
+              "value":"Equity",
                 "name": "Equity"
             }, {
-              "value":"deby",
+              "value":"Debt",
                 "name": "Debt"
             }]
         }

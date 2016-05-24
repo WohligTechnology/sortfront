@@ -1,78 +1,65 @@
 {
-    "title": "All Funds",
-    "desciption": "",
-    "pageType": "view",
-    "fields": [
-      {
-        "name":"Name",
-        "isSort":"",
-        "tableRef":"name"
-      },
-      {
-        "name":"Price",
-        "isSort":"",
-        "tableRef":"price"
-      },
-      {
-        "name":"Type",
-        "isSort":"",
-        "tableRef":"type"
-      }
-    ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"editFunds",
-        "jsonPage":"editFunds",
-        "fieldsToSend":["_id"],
-        "callFindOne":"funds/findOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"deleteUser",
-        "jsonPage":"viewFunds",
-        "fieldsToSend":["_id"]
-      },
-      {
-        "name":"print",
-        "icon":"print",
-        "color":"red",
-        "action":"print"
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
-    "filter": [
-      {
-        "name":"category",
-        "url":"http://192.168.1.127:1337/Accounts/getAll"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
-    "apiCall": {
-        "url": "funds/findLimited",
-        "params": ""
-    },
-    "createButtonState":"page({jsonName:'createFunds'})"
+	"title": "All Funds",
+	"desciption": "",
+	"pageType": "view",
+	"fields": [{
+		"name": "Name",
+		"isSort": "",
+		"tableRef": "name"
+	}, {
+		"name": "Price",
+		"isSort": "",
+		"tableRef": "price"
+	}, {
+		"name": "Type",
+		"isSort": "",
+		"tableRef": "type"
+	}],
+	"action": [{
+		"name": "edit",
+		"icon": "mode_edit",
+		"color": "blue",
+		"action": "redirect",
+		"jsonPage": "editFunds",
+		"fieldsToSend": ["_id"],
+		"callFindOne": "funds/getOne"
+	}, {
+		"name": "delete",
+		"icon": "delete",
+		"color": "red",
+		"action": "apiCallConfirm",
+		"title": "Delete Funds",
+		"content": "Are you sure you want to delete user?",
+		"api": "funds/delete",
+		"fieldsToSend": [{
+			"name": "_id",
+			"value": "_id"
+
+		}]
+	}],
+	"button": [{
+		"name": "excelexport",
+		"icon": "print",
+		"color": "blue",
+		"action": "excelexport"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"filter": [{
+		"name": "category",
+		"url": "http://192.168.1.127:1337/Accounts/getAll"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"apiCall": {
+		"url": "funds/findLimited",
+		"params": ""
+	},
+	"createButtonState": "page({jsonName:'createFunds'})"
 }

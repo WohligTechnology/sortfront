@@ -1,6 +1,6 @@
 {
     "title": "Edit Investment Type",
-    "jsonPage": "editInvestmentType",
+    "jsonPage": "viewInvestmentType",
     "desciption": "",
     "pageType": "edit",
     "urlFields": ["_id"],
@@ -97,40 +97,40 @@
     }, {
         "name": "More than 3 equity 1 percent",
         "type": "text",
-        "tableRef": "morethan3quity1percent",
+        "tableRef": "morethan3equity1percent",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "morethan3quity1percent"
+        "model": "morethan3equity1percent"
     }, {
         "name": "More than 3 equity 1 fund",
         "type": "text",
-        "tableRef": "morethan3quity1fund",
+        "tableRef": "morethan3equity1fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "morethan3quity1fund"
+        "model": "morethan3equity1fund"
     }, {
         "name": "More than 3 equity 2 percent",
         "type": "text",
-        "tableRef": "morethan3quity2percent",
+        "tableRef": "morethan3equity2percent",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "morethan3quity2percent"
+        "model": "morethan3equity2percent"
     }
     , {
         "name": "More than 3 equity 2 fund",
         "type": "text",
-        "tableRef": "morethan3quity2fund",
+        "tableRef": "morethan3equity2fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": "",
-        "model": "morethan3quity2fund"
+        "model": "morethan3equity2fund"
     }, {
         "name": "More than 3 debt 1 percent",
         "type": "text",
@@ -186,11 +186,11 @@
         "stateName": "page({jsonName:'viewInvestmentType'})"
     }],
     "apiCall": {
-        "url": "funds/save",
+        "url": "investmenttype/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "funds/findOne",
+        "url": "investmenttype/getOne",
         "params": "_id"
     },
     "sidemenu": [{

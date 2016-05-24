@@ -157,7 +157,7 @@
 	}],
 
 	"apiCall": {
-		"url": "funds/save"
+		"url": "investmenttype/save"
 	},
 
 	"sidemenu": [{

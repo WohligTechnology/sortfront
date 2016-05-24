@@ -2,70 +2,60 @@
     "title": "All Investment Types",
     "desciption": "",
     "pageType": "view",
-    "fields": [
-      {
-        "name":"Name",
-        "isSort":"",
-        "tableRef":"name"
-      },
-      {
-        "name":"Equity Percent",
-        "isSort":"",
-        "tableRef":"equitypercent"
-      }
-    ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"editInvestmentType",
-        "jsonPage":"editInvestmentType",
-        "fieldsToSend":["_id"],
-        "callFindOne":"Investmenttype/getOne"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"deleteUser"
-      },
-      {
-        "name":"print",
-        "icon":"print",
-        "color":"red",
-        "action":"print"
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
-    "filter": [
-      {
-        "name":"category",
-        "url":"http://192.168.1.127:1337/Accounts/getAll"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
+    "fields": [{
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Equity Percent",
+        "isSort": "",
+        "tableRef": "equitypercent"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editInvestmentType",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "investmenttype/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Investment type",
+        "content": "Are you sure you want to delete Investment type?",
+        "api": "investmenttype/delete",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "filter": [{
+        "name": "category",
+        "url": "http://192.168.1.127:1337/Accounts/getAll"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
     "apiCall": {
         "url": "investmenttype/findLimited",
         "params": ""
     },
-    "createButtonState":"page({jsonName:'createInvestmentType'})"
+    "createButtonState": "page({jsonName:'createInvestmentType'})"
 }
