@@ -1,0 +1,65 @@
+{
+	"title": "All Port Folio",
+	"desciption": "",
+	"pageType": "view",
+	"fields": [{
+		"name": "User",
+		"isSort": "",
+		"tableRef": "user"
+	}, {
+		"name": "Goal Name",
+		"isSort": "",
+		"tableRef": "price"
+	}, {
+		"name": "Amount",
+		"isSort": "",
+		"tableRef": "amount"
+	}],
+	"action": [{
+		"name": "edit",
+		"icon": "mode_edit",
+		"color": "blue",
+		"action": "redirect",
+		"jsonPage": "editPortFolio",
+		"fieldsToSend": ["_id"],
+		"callFindOne": "portfolio/getOne"
+	}, {
+		"name": "delete",
+		"icon": "delete",
+		"color": "red",
+		"action": "apiCallConfirm",
+		"title": "Delete Port Folio",
+		"content": "Are you sure you want to delete portfolio?",
+		"api": "portfolio/delete",
+		"fieldsToSend": [{
+			"name": "_id",
+			"value": "_id"
+
+		}]
+	}],
+	"button": [{
+		"name": "excelexport",
+		"icon": "print",
+		"color": "blue",
+		"action": "excelexport"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"filter": [{
+		"name": "category",
+		"url": "http://192.168.1.127:1337/Accounts/getAll"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"apiCall": {
+		"url": "portfolio/findLimited",
+		"params": ""
+	},
+	"createButtonState": "page({jsonName:'createPortFolio'})"
+}

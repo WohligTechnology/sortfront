@@ -36,6 +36,10 @@
 
                                 <br>
                             </div>
+                            <!-- // SELECT FROM DATE-->
+                            <div ng-if="field.type=='date'">
+                           <md-datepicker ng-model="field.model" md-placeholder="Enter date"></md-datepicker>
+                            </div>
 
                             <div ng-if="field.type=='image'">
 

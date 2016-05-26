@@ -11,13 +11,23 @@
                     <form name="plan">
                         <div class="form-group" ng-repeat="field in json.fields">
                             <!-- <div ng-repeat="field in json.editData track by $index"> -->
-                            <div ng-if="field.type=='text' || field.type=='email'">
-
+                            <div ng-if="(field.type=='text' || field.type=='email') && !field.modelDot">
                                 <label for="{{field.id}}">{{field.name}}</label>
                                 <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
+                            <!-- <div ng-if="(field.type=='password'">
+                                <label for="{{field.id}}">{{field.name}}</label>
+                                <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div> -->
+                            <div ng-if="(field.type=='text' || field.type=='email') && field.modelDot">
+                                <label for="{{field.id}}">{{field.name}}</label>
+                                <input ng-model="json.editData[field.model][field.modelDot]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
                             <div ng-if="field.type=='hidden'">
                                 <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
+                            <div ng-if="field.type=='date'">
+                                <md-datepicker ng-model="json.editData[field.model]" md-placeholder="Enter date"></md-datepicker>
                             </div>
 
                             <!-- // SELECT -->
@@ -45,7 +55,7 @@
 
                             <div ng-if="field.type=='image'">
 
-                          
+
                                 <label for="">Upload Image</label>
 
                                 <!-- <img ng-src="{{field.image|uploadpath}}"> -->

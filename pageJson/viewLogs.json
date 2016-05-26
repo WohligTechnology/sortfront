@@ -1,42 +1,36 @@
 {
-    "title": "All Users",
+    "title": "All Funds",
     "desciption": "",
     "pageType": "view",
     "fields": [{
-            "name": "Name",
-            "isSort": "",
-            "tableRef": "name"
-        }, {
-            "name": "Email",
-            "isSort": "",
-            "tableRef": "email"
-        }, {
-            "name": "DOB",
-            "isSort": "",
-            "tableRef": "dob"
-        }, {
-            "name": "Occupation",
-            "isSort": "",
-            "tableRef": "occupation"
-        }
-
-    ],
+        "name": "Name",
+        "isSort": "",
+        "tableRef": "name"
+    }, {
+        "name": "Price",
+        "isSort": "",
+        "tableRef": "price"
+    }, {
+        "name": "Type",
+        "isSort": "",
+        "tableRef": "type"
+    }],
     "action": [{
         "name": "edit",
         "icon": "mode_edit",
         "color": "blue",
         "action": "redirect",
-        "jsonPage": "editUser",
+        "jsonPage": "editFunds",
         "fieldsToSend": ["_id"],
-        "callFindOne": "user/getOne"
+        "callFindOne": "funds/getOne"
     }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
-        "title": "Delete User",
+        "title": "Delete Funds",
         "content": "Are you sure you want to delete user?",
-        "api": "user/delete",
+        "api": "funds/delete",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
@@ -64,8 +58,8 @@
         "action": "uploadcsv"
     }],
     "apiCall": {
-        "url": "user/findLimited",
+        "url": "funds/findLimited",
         "params": ""
     },
-    "createButtonState": "page({jsonName:'createUser'})"
+    "createButtonState": "page({jsonName:'createFunds'})"
 }

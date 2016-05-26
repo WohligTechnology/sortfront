@@ -1,24 +1,36 @@
 {
-    "title": "Create Funds",
+    "title": "Edit Funds",
     "jsonPage": "viewFunds",
     "desciption": "",
-    "pageType": "create",
+    "pageType": "edit",
+    "urlFields": ["_id"],
     "fields": [{
+        "name": "Id",
+        "type": "hidden",
+        "tableRef": "_id",
+        "placeholder": "Enter id",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "",
+        "model": "_id"
+    }, {
         "name": "Name",
         "type": "text",
         "tableRef": "name",
         "placeholder": "Enter name",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "",
+        "model": "name"
     }, {
         "name": "Price",
         "type": "text",
         "tableRef": "price",
-        "placeholder": "Enter name",
+        "placeholder": "Enter price",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "",
+        "model": "price"
     }, {
         "name": "Type",
         "type": "select",
@@ -27,25 +39,30 @@
         "id": "input3",
         "validation": [],
         "url": [{
-            "value": "Equity",
+            "value": "equity",
             "name": "Equity"
         }, {
-            "value": "Debt",
+            "value": "deby",
             "name": "Debt"
-        }]
+        }],
+        "model": "type"
     }],
     "action": [{
         "name": "submit",
         "action": "submitUser"
     }, {
         "name": "cancel",
+        "action": "cancelUser",
         "stateName": "page({jsonName:'viewFunds'})"
     }],
-
     "apiCall": {
-        "url": "funds/save"
+        "url": "investmenttype/save",
+        "params": "_id"
     },
-
+    "preApi": {
+        "url": "investmenttype/getOne",
+        "params": "_id"
+    },
     "sidemenu": [{
         "url": "",
         "anchor": "",

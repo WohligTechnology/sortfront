@@ -22,7 +22,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http,$mdDialog, $state, $filter) {
+.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $mdDialog, $state, $filter) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
@@ -31,7 +31,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonArr = $stateParams.jsonName.split("¢");
     var jsonName = jsonArr[0];
     var urlParams = {};
-
+    $scope.sidemenuVal = $stateParams;
     var jsonParam1 = jsonArr[1];
     var jsonParam2 = jsonArr[2];
     var jsonParam3 = jsonArr[3];
@@ -42,22 +42,22 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonParam8 = jsonArr[8];
     var jsonParam9 = jsonArr[9];
 
-    $scope.confirm = function(title,content,api,data) {
-      var confirm = $mdDialog.confirm()
-          .title(title)
-          .textContent(content)
-          .ok('Confirm')
-          .cancel('Cancel');
-      $mdDialog.show(confirm).then(function() {
-          $http.post(api,data).success(function(data) {
-              $state.reload();
-              showToast("Deleted Successfully");
-          }, function() {
-              showToast("Error Deleting");
-          });
-      }, function() {
+    $scope.confirm = function(title, content, api, data) {
+        var confirm = $mdDialog.confirm()
+            .title(title)
+            .textContent(content)
+            .ok('Confirm')
+            .cancel('Cancel');
+        $mdDialog.show(confirm).then(function() {
+            $http.post(api, data).success(function(data) {
+                $state.reload();
+                showToast("Deleted Successfully");
+            }, function() {
+                showToast("Error Deleting");
+            });
+        }, function() {
 
-      });
+        });
     };
 
     $http.get("./pageJson/" + jsonName + ".json").success(function(data) {
@@ -65,11 +65,16 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each(data.urlFields, function(n, key) {
             urlParams[n] = jsonArr[key + 1];
         });
+
+
         console.log(urlParams);
 
 
         $scope.json = data;
         console.log($scope.json);
+        if ($scope.json.sidemenu && $scope.json.sidemenu.length > 0) {
+            $scope.sidemenuThere = true;
+        }
         if (data.pageType == "create") {
             _.each($scope.json.fields, function(n) {
                 if (n.type == "select") {
@@ -137,6 +142,20 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
             $scope.confirm(action.title, action.content, pageURL, data);
+        }
+        else if (action.action == 'sidemenuRedirect') {
+            pageURL = action.jsonPage;
+            if (action.fieldsToSend) {
+                _.each(action.fieldsToSend, function(n) {
+                    pageURL += "¢" + jsonArr[n];
+                });
+            }
+            $state.go("page", {
+                jsonName: pageURL
+            });
+        }
+        else if (action.action === 'changeActive') {
+            $scope.defaultActive = action.active;
         }
     };
 

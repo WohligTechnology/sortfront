@@ -1,0 +1,156 @@
+{
+    "title": "Edit PortFolio",
+    "jsonPage": "viewPortFolio",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "User",
+        "type": "text",
+        "tableRef": "user",
+        "model": "user",
+        "placeholder": "Enter user",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "PortFolio",
+        "type": "selectFromTable",
+        "tableRef": "funds",
+        "model": "funds",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Goal Name",
+        "type": "text",
+        "tableRef": "goalname",
+        "model": "goalname",
+        "placeholder": "Enter goal name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Lumpsum",
+        "type": "text",
+        "tableRef": "lumpsum",
+        "model": "lumpsum",
+        "placeholder": "Enter lumpsum",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Monthly",
+        "type": "text",
+        "tableRef": "monthly",
+        "model": "monthly",
+        "placeholder": "Enter monthly",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "No of Month",
+        "type": "text",
+        "tableRef": "no of month",
+        "model": "no of month",
+        "placeholder": "Enter no of month",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "No of Installment",
+        "type": "text",
+        "tableRef": "No Of Installment",
+        "model": "No Of Installment",
+        "placeholder": "Enter No Of Installment",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Inflation",
+        "type": "text",
+        "tableRef": "inflation",
+        "model": "inflation",
+        "placeholder": "Enter inflation",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Installment",
+        "type": "text",
+        "tableRef": "installment",
+        "model": "installment",
+        "placeholder": "Enter installment",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Start Month",
+        "type": "text",
+        "tableRef": "startmonth",
+        "model": "startmonth",
+        "placeholder": "Enter start month",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Short Loss",
+        "type": "text",
+        "tableRef": "shortloss",
+        "model": "shortloss",
+        "placeholder": "Enter shortloss",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Long Loss",
+        "type": "text",
+        "tableRef": "longloss",
+        "model": "longloss",
+        "placeholder": "Enter longloss",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Amount",
+        "type": "text",
+        "tableRef": "amount",
+        "model": "amount",
+        "placeholder": "Enter amount",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewPortFolio'})"
+    }],
+    "apiCall": {
+        "url": "investmenttype/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "investmenttype/getOne",
+        "params": "_id"
+    },
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

@@ -1,6 +1,6 @@
 {
     "title": "Create User",
-      "jsonPage":"userView",
+    "jsonPage": "userView",
     "desciption": "",
     "pageType": "create",
     "fields": [{
@@ -13,54 +13,180 @@
             "url": ""
         }, {
             "name": "Email",
-            "type": "email",
+            "type": "text",
             "tableRef": "email",
             "placeholder": "Enter email",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
             "url": ""
         }, {
-            "name": "Accesslevel",
-            "type": "select",
-            "tableRef": "accesslevel",
-            "placeholder": "Enter accesslevel",
-            "id": "input3",
-            "validation": [],
-            "url": [{
-              "value":"admin",
-                "name": "Admin"
-            }, {
-              "value":"operator",
-                "name": "Operator"
-            }]
+            "name": "Password",
+            "type": "password",
+            "tableRef": "password",
+            "placeholder": "Enter password",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
         }, {
-            "name": "Team",
-            "type": "selectFromTable",
-            "tableRef": "team",
-            "placeholder": "Choose team",
-            "id": "input4",
-            "model": "team",
-            "validation": [],
-            "url": [{
-                "_id": "572ca0bb96ef92d30fc29894",
-                "name": "Aus"
-            }, {
-                "_id": "572ca0d796ef92d30fc29895",
-                "name": "Pakistan"
-            }, {
-                "_id": "573025eb42975d94058789de",
-                "name": "KKR"
-            }]
+            "name": "Dob",
+            "type": "date",
+            "tableRef": "dob",
+            "placeholder": "Enter dob",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
         }, {
-            "name": "Image",
-            "type": "image",
-            "tableRef": "image",
-            "placeholder": "Enter image",
-            "id": "input5",
-            "model": "",
-            "validation": [],
-            "url": "",
-            "model":"image1"
+            "name": "Country",
+            "type": "text",
+            "tableRef": "country",
+            "placeholder": "Enter country",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Gross Annual Income",
+            "type": "text",
+            "tableRef": "Gross annual income",
+            "placeholder": "Enter Gross annual income",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Net worth",
+            "type": "text",
+            "tableRef": "networth",
+            "placeholder": "Enter networth",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Occupation",
+            "type": "text",
+            "tableRef": "occupation",
+            "placeholder": "Enter occupation",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Gender",
+            "type": "text",
+            "tableRef": "gender",
+            "placeholder": "Enter gender",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Political Views",
+            "type": "text",
+            "tableRef": "politicalViews",
+            "placeholder": "Enter political views",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Tax residency",
+            "type": "text",
+            "tableRef": "taxResidency",
+            "placeholder": "Enter tax residency",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Marital Status",
+            "type": "text",
+            "tableRef": "maritalStatus",
+            "placeholder": "Enter marital status",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Nationality",
+            "type": "text",
+            "tableRef": "nationality",
+            "placeholder": "Enter nationality",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Tax Status",
+            "type": "text",
+            "tableRef": "taxStatus",
+            "placeholder": "Enter taxStatus",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Photo",
+            "type": "text",
+            "tableRef": "photo",
+            "placeholder": "Enter photo",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Address proof",
+            "type": "text",
+            "tableRef": "addressproof",
+            "placeholder": "Enter address proof",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Corressponding Address proof",
+            "type": "text",
+            "tableRef": "corraddressproof",
+            "placeholder": "Enter corressponding address proof",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Address type",
+            "type": "text",
+            "tableRef": "addresstype",
+            "placeholder": "Enter address type",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Bank name",
+            "type": "text",
+            "tableRef": "bankname",
+            "placeholder": "Enter bank name",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Pan",
+            "type": "text",
+            "tableRef": "pan",
+            "placeholder": "Enter pan",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+            "name": "Cancelled cheque",
+            "type": "text",
+            "tableRef": "cancelledcheque",
+            "placeholder": "Enter cancelled cheque",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
+          "name": "Points",
+          "type": "text",
+          "tableRef": "points",
+          "placeholder": "Enter points",
+          "id": "input2",
+          "validation": ["required", "trim", "unique"],
+          "url": ""
+        }, {
+          "name": "Referred",
+          "type": "text",
+          "tableRef": "referred",
+          "placeholder": "Enter referred",
+          "id": "input2",
+          "validation": ["required", "trim", "unique"],
+          "url": ""
         }
 
     ],
@@ -69,11 +195,11 @@
         "action": "submitUser"
     }, {
         "name": "cancel",
-        "stateName":"page({jsonName:'userView'})"
+        "stateName": "page({jsonName:'userView'})"
     }],
 
     "apiCall": {
-        "url": "creato/save"
+        "url": "user/save"
     },
 
     "sidemenu": [{

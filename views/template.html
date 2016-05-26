@@ -1,19 +1,24 @@
 <div layout="row">
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')">
+        <div class="template aside" ng-include="template.aside"></div>
+    </md-sidenav>
 
-  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('min-width: 333px')">
-    <div class="template aside" ng-include="template.aside"></div>
-  </md-sidenav>
+    <div layout="column" layout-fill>
+        <md-toolbar>
+            <div class="template header md-toolbar-tools" ng-include="template.header"></div>
+        </md-toolbar>
+        <md-content flex layout-padding>
+            <div class="template content" ng-include="template.content" ng-if="!sidemenuThere"></div>
 
-  <div layout="column" layout-fill>
-  <md-toolbar>
-    <div class="template header md-toolbar-tools" ng-include="template.header"></div>
-  </md-toolbar>
-  <md-content flex layout-padding>
-      <div class="template content" ng-include="template.content"></div>
-    <footer>
-      <div class="template footer" ng-include="template.footer"></div>
-    </footer>
-  </md-content>
-</div>
 
+            <div layout="row" ng-if="sidemenuThere">
+                <div flex="80" layout-margin="0 20px 0 0" class="template content"  ng-include="template.content" ></div>
+                <div flex="20" class="template sidemenu"  ng-include="template.sidemenu"></div>
+            </div>
+
+            <footer>
+                <div class="template footer" ng-include="template.footer"></div>
+            </footer>
+        </md-content>
+    </div>
 </div>
