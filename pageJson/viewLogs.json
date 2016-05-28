@@ -1,65 +1,73 @@
 {
-    "title": "All Funds",
-    "desciption": "",
-    "pageType": "view",
-    "fields": [{
-        "name": "Name",
-        "isSort": "",
-        "tableRef": "name"
-    }, {
-        "name": "Price",
-        "isSort": "",
-        "tableRef": "price"
-    }, {
-        "name": "Type",
-        "isSort": "",
-        "tableRef": "type"
-    }],
-    "action": [{
-        "name": "edit",
-        "icon": "mode_edit",
-        "color": "blue",
-        "action": "redirect",
-        "jsonPage": "editFunds",
-        "fieldsToSend": ["_id"],
-        "callFindOne": "funds/getOne"
-    }, {
-        "name": "delete",
-        "icon": "delete",
-        "color": "red",
-        "action": "apiCallConfirm",
-        "title": "Delete Funds",
-        "content": "Are you sure you want to delete user?",
-        "api": "funds/delete",
-        "fieldsToSend": [{
-            "name": "_id",
-            "value": "_id"
+	"title": "All Logs",
+	"desciption": "",
+	"pageType": "view",
+	"fields": [{
+		"name": "User",
+		"isSort": "",
+		"tableRef": "user"
+	}, {
+		"name": "Fund",
+		"isSort": "",
+		"tableRef": "funds"
+	}, {
+		"name": "Portfolio",
+		"isSort": "",
+		"tableRef": "portfolio"
+	}, {
+		"name": "Quantity",
+		"isSort": "",
+		"tableRef": "quantity"
+	}, {
+		"name": "Amount",
+		"isSort": "",
+		"tableRef": "amount"
+	}],
+	"action": [{
+		"name": "edit",
+		"icon": "mode_edit",
+		"color": "blue",
+		"action": "redirect",
+		"jsonPage": "editLogs",
+		"fieldsToSend": ["_id"],
+		"callFindOne": "logs/getOne"
+	}, {
+		"name": "delete",
+		"icon": "delete",
+		"color": "red",
+		"action": "apiCallConfirm",
+		"title": "Delete Logs",
+		"content": "Are you sure you want to delete user?",
+		"api": "logs/delete",
+		"fieldsToSend": [{
+			"name": "_id",
+			"value": "_id"
 
-        }]
-    }],
-    "button": [{
-        "name": "excelexport",
-        "icon": "print",
-        "color": "blue",
-        "action": "excelexport"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
-    "filter": [{
-        "name": "category",
-        "url": "http://192.168.1.127:1337/Accounts/getAll"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
-    "apiCall": {
-        "url": "funds/findLimited",
-        "params": ""
-    },
-    "createButtonState": "page({jsonName:'createFunds'})"
+		}]
+	}],
+	"button": [{
+		"name": "excelexport",
+		"icon": "print",
+		"color": "blue",
+		"action": "excelexport"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"filter": [{
+		"name": "category",
+		"url": "http://192.168.1.127:1337/Accounts/getAll"
+	}, {
+		"name": "uploadcsv",
+		"icon": "delete",
+		"color": "red",
+		"action": "uploadcsv"
+	}],
+	"apiCall": {
+		"url": "logs/findLimited",
+		"params": ""
+	},
+	"createButtonState": "page({jsonName:'createLogs'})"
 }

@@ -56,17 +56,26 @@
         "stateName": "page({jsonName:'viewFunds'})"
     }],
     "apiCall": {
-        "url": "investmenttype/save",
+        "url": "funds/save",
         "params": "_id"
     },
     "preApi": {
-        "url": "investmenttype/getOne",
+        "url": "funds/getOne",
         "params": "_id"
     },
+
     "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
+      "name":"Funds Details",
+      "action":"sidemenuRedirect",
+      "jsonPage":"editFunds",
+      "fieldsToSend":[1],
+      "callFindOne":"funds/getOne"
+    },
+    {
+      "name":"Fund Price",
+      "action":"sidemenuRedirect",
+      "jsonPage":"viewFundsPrice",
+      "fieldsToSend":[1],
+      "callFindOne":"fundsprice/findlimited"
     }]
 }

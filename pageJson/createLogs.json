@@ -1,49 +1,59 @@
 {
-    "title": "Create Funds",
-    "jsonPage": "viewFunds",
+    "title": "Create Logs",
+    "jsonPage": "viewLogs",
     "desciption": "",
     "pageType": "create",
     "fields": [{
-        "name": "Name",
-        "type": "text",
-        "tableRef": "name",
-        "placeholder": "Enter name",
+        "name": "User",
+        "type": "selectFromTable",
+        "tableRef": "user",
+        "placeholder": "Enter user",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Price",
-        "type": "text",
-        "tableRef": "price",
-        "placeholder": "Enter name",
+        "name": "Fund",
+        "type": "selectFromTable",
+        "tableRef": "fund",
+        "placeholder": "Enter fund",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
-        "name": "Type",
-        "type": "select",
-        "tableRef": "type",
-        "placeholder": "Enter type",
+        "name": "Portfolio",
+        "type": "selectFromTable",
+        "tableRef": "portfolio",
+        "placeholder": "Enter portfolio",
         "id": "input3",
         "validation": [],
-        "url": [{
-            "value": "Equity",
-            "name": "Equity"
-        }, {
-            "value": "Debt",
-            "name": "Debt"
-        }]
+        "url":""
+    },{
+        "name": "Quantity",
+        "type": "text",
+        "tableRef": "quantity",
+        "placeholder": "Enter quantity",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    },{
+        "name": "Amount",
+        "type": "text",
+        "tableRef": "amount",
+        "placeholder": "Enter amount",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
     }],
     "action": [{
         "name": "submit",
         "action": "submitUser"
     }, {
         "name": "cancel",
-        "stateName": "page({jsonName:'viewFunds'})"
+        "stateName": "page({jsonName:'viewLogs'})"
     }],
 
     "apiCall": {
-        "url": "funds/save"
+        "url": "logs/save"
     },
 
     "sidemenu": [{

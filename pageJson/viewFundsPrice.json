@@ -1,36 +1,32 @@
 {
-	"title": "All Port Folio",
+	"title": "All FundsPrice",
 	"desciption": "",
 	"pageType": "view",
 	"fields": [{
-		"name": "User",
+		"name": "Fund",
 		"isSort": "",
-		"tableRef": "user"
+		"tableRef": "funds"
 	}, {
-		"name": "Goal Name",
+		"name": "Price",
 		"isSort": "",
-		"tableRef": "goalName"
-	}, {
-		"name": "Status",
-		"isSort": "",
-		"tableRef": "status"
+		"tableRef": "price"
 	}],
 	"action": [{
 		"name": "edit",
 		"icon": "mode_edit",
 		"color": "blue",
 		"action": "redirect",
-		"jsonPage": "editPortFolio",
-		"fieldsToSend": ["_id"],
-		"callFindOne": "portfolio/getOne"
+		"jsonPage": "editFundsPrice",
+		"fieldsToSend": ["_id","funds"],
+		"callFindOne": "fundsprice/getOne"
 	}, {
 		"name": "delete",
 		"icon": "delete",
 		"color": "red",
 		"action": "apiCallConfirm",
-		"title": "Delete Port Folio",
-		"content": "Are you sure you want to delete portfolio?",
-		"api": "portfolio/delete",
+		"title": "Delete FundsPrice",
+		"content": "Are you sure you want to delete funds price?",
+		"api": "fundsprice/delete",
 		"fieldsToSend": [{
 			"name": "_id",
 			"value": "_id"
@@ -58,8 +54,22 @@
 		"action": "uploadcsv"
 	}],
 	"apiCall": {
-		"url": "portfolio/findLimited",
+		"url": "fundsprice/findLimited",
 		"params": ""
 	},
-	"createButtonState": "page({jsonName:'createPortFolio'})"
+	"createButtonState": "page({jsonName:'createFundsPrice'})",
+	"sidemenu": [{
+		"name":"Funds Details",
+		"action":"sidemenuRedirect",
+		"jsonPage":"editFunds",
+		"fieldsToSend":[1],
+		"callFindOne":"funds/getOne"
+	},
+	{
+		"name":"Fund Price",
+		"action":"sidemenuRedirect",
+		"jsonPage":"viewFundsPrice",
+		"fieldsToSend":[1],
+		"callFindOne":"fundsprice/findlimited"
+	}]
 }

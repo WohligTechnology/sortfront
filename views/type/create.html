@@ -21,7 +21,7 @@
                                 </select> -->
                                 <select ng-model="field.model">
                                     <option value="">SELECT</option>
-                                    <option ng-repeat="item in field.url" value="{{item._id}}">
+                                    <option ng-repeat="item in dropdownvalues track by $index" value="{{item._id}}">
                                         {{item.name}}
                                     </option>
                                 </select>

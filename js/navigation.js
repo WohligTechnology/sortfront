@@ -25,6 +25,11 @@ var navigationservice = angular.module('navigationservice', [])
         classis: "active",
         link: "#/page/viewPortFolio",
         subnav: []
+    }, {
+        name: "Logs",
+        classis: "active",
+        link: "#/page/viewLogs",
+        subnav: []
     }];
 
     return {
@@ -56,11 +61,14 @@ var navigationservice = angular.module('navigationservice', [])
             console.log(urlParams);
             $http.post(adminurl + apiName, urlParams).success(successCallback).error(errorCallback);
         },
-        // saveApi: function(data, successCallback, errorCallback) {
-        //   $http.post(adminURL + "api/save", data).success(successCallback).error(errorCallback);
-        // },
+        sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
+          $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
+        },
         deleteApi: function(data, successCallback, errorCallback) {
             $http.post(adminURL + "api/delete", data).success(successCallback).error(errorCallback);
+        },
+        getDropDown: function(apiName, successCallback, errorCallback) {
+            $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
         },
 
     };

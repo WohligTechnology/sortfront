@@ -1,0 +1,41 @@
+{
+    "title": "Create Funds",
+    "jsonPage": "viewFunds",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Funds",
+        "type": "text",
+        "tableRef": "funds",
+        "placeholder": "Enter funds",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "funds/getAll"
+    }, {
+        "name": "Price",
+        "type": "text",
+        "tableRef": "price",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewFundsPrice'})"
+    }],
+
+    "apiCall": {
+        "url": "fundsprice/save"
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

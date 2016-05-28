@@ -22,7 +22,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 })
 
-.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $mdDialog, $state, $filter) {
+.controller('jsonViewCtrl', function($scope, TemplateService, NavigationService, $timeout, $stateParams, $http, $mdDialog, $state, $filter, $location) {
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
@@ -31,6 +31,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var jsonArr = $stateParams.jsonName.split("¢");
     var jsonName = jsonArr[0];
     var urlParams = {};
+    $scope.dropdown = {};
+    $scope.dropdownvalues = [];
     $scope.sidemenuVal = $stateParams;
     var jsonParam1 = jsonArr[1];
     var jsonParam2 = jsonArr[2];
@@ -65,11 +67,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         _.each(data.urlFields, function(n, key) {
             urlParams[n] = jsonArr[key + 1];
         });
-
-
         console.log(urlParams);
-
-
         $scope.json = data;
         console.log($scope.json);
         if ($scope.json.sidemenu && $scope.json.sidemenu.length > 0) {
@@ -87,9 +85,33 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     n.model = "";
                 }
             });
+            // get select fields dropdown
+            _.each($scope.json.fields, function(n) {
+                if (n.type == "selectFromTable") {
+                    NavigationService.getDropDown(n.url, function(data) {
+                        if (data) {
+                            for (var i = 0; i < data.data.length; i++) {
+                                $scope.dropdown = {};
+                                $scope.dropdown._id = data.data[i]._id;
+                                $scope.dropdown.name = data.data[i].name;
+                                $scope.dropdownvalues.push($scope.dropdown);
+                                console.log($scope.dropdownvalues);
+                            }
+
+
+                        }
+                    }, function() {
+                        console.log("Fail");
+                    });
+                }
+            });
+
 
         } else if (data.pageType == "edit") {
-            console.log(urlParams);
+            var urlid1 = $location.absUrl().split('%C2%A2')[1];
+            var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            console.log(urlid1);
+            console.log(urlid2);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
 
                 $scope.json.editData = data.data;
@@ -97,15 +119,51 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }, function() {
                 console.log("Fail");
             });
+            // get select fields dropdown
+            _.each($scope.json.fields, function(n) {
+                if (n.type == "selectFromTable") {
+                    NavigationService.getDropDown(n.url, function(data) {
+                        if (data) {
+                            for (var i = 0; i < data.data.length; i++) {
+                                $scope.dropdown = {};
+                                $scope.dropdown._id = data.data[i]._id;
+                                $scope.dropdown.name = data.data[i].name;
+                                $scope.dropdownvalues.push($scope.dropdown);
+                                console.log($scope.dropdownvalues);
+                            }
+
+
+                        }
+                    }, function() {
+                        console.log("Fail");
+                    });
+                }
+            });
 
         } else if (data.pageType == "view") {
-            // call api for view data
-            $scope.apiName = $scope.json.apiCall.url;
             var pagination = {
                 "search": "",
                 "pagenumber": "1",
                 "pagesize": "10"
             };
+            // SIDE MENU DATA
+            var urlid1 = $location.absUrl().split('%C2%A2')[1];
+            // var urlid2 = $location.absUrl().split('%C2%A2')[2];
+
+            if (urlid1) {
+                $scope.api1 = $scope.json.sidemenu[1].callFindOne;
+                console.log($scope.api1);
+                pagination._id = urlid1;
+                NavigationService.sideMenu1($scope.api1, pagination, function(data) {
+                    $scope.json.tableData = data.data.data;
+                    console.log($scope.json.tableData);
+                }, function() {
+                    console.log("Fail");
+                });
+            }
+            // call api for view data
+            $scope.apiName = $scope.json.apiCall.url;
+
             NavigationService.findProjects($scope.apiName, pagination, function(data) {
                 $scope.json.tableData = data.data.data;
                 console.log($scope.json.tableData);
@@ -142,8 +200,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 });
             }
             $scope.confirm(action.title, action.content, pageURL, data);
-        }
-        else if (action.action == 'sidemenuRedirect') {
+        } else if (action.action == 'sidemenuRedirect') {
             pageURL = action.jsonPage;
             if (action.fieldsToSend) {
                 _.each(action.fieldsToSend, function(n) {
@@ -153,28 +210,14 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             $state.go("page", {
                 jsonName: pageURL
             });
-        }
-        else if (action.action === 'changeActive') {
+        } else if (action.action === 'changeActive') {
             $scope.defaultActive = action.active;
         }
-    };
 
-    // ACTION
-    // $scope.performAction = function(action, result) {
-    //      if (action.jsonPage) {
-    //         console.log("In edit");
-    //         console.log(action);
-    //         var pageURL = action.jsonPage;
-    //         if (action.fieldsToSend) {
-    //             _.each(action.fieldsToSend, function(n) {
-    //                 pageURL += "¢" + $filter("getValue")(result, n);
-    //             });
-    //         }
-    //         $state.go("page", {
-    //             jsonName: pageURL
-    //         });
-    //     }
-    // };
+
+
+
+    };
 
     $scope.makeReadyForApi = function() {
         var data = {};

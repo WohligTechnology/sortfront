@@ -4,123 +4,116 @@
     "desciption": "",
     "pageType": "create",
     "fields": [{
-        "name": "User",
-        "type": "text",
-        "tableRef": "user",
-        "placeholder": "Enter user",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
+      "name": "User",
+      "type": "selectFromTable",
+      "tableRef": "user",
+      "placeholder": "Enter user",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": "user/getAll"
     }, {
-        "name": "Status",
-        "type": "select",
-        "tableRef": "status",
-        "placeholder": "Enter name",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": [{
-            "value": "Enable",
-            "name": "Enable"
-        }, {
-            "value": "Disable",
-            "name": "Disable"
-        }]
+      "name": "Status",
+      "type": "select",
+      "tableRef": "status",
+      "placeholder": "Enter name",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": [{
+        "value": "true",
+        "name": "true"
+      }, {
+        "value": "false",
+        "name": "false"
+      }]
     }, {
-        "name": "Funds",
-        "type": "selectFromTable",
-        "tableRef": "funds",
-        "placeholder": "Enter name",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Goal Name",
-        "type": "text",
-        "tableRef": "goalname",
-        "placeholder": "Enter goal name",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Lumpsum",
-        "type": "text",
-        "tableRef": "lumpsum",
-        "placeholder": "Enter lumpsum",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Monthly",
-        "type": "text",
-        "tableRef": "monthly",
-        "placeholder": "Enter monthly",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "No of Month",
-        "type": "text",
-        "tableRef": "no of month",
-        "placeholder": "Enter no of month",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "No of Installment",
-        "type": "text",
-        "tableRef": "No Of Installment",
-        "placeholder": "Enter No Of Installment",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Inflation",
-        "type": "text",
-        "tableRef": "inflation",
-        "placeholder": "Enter inflation",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Installment",
-        "type": "text",
-        "tableRef": "installment",
-        "placeholder": "Enter installment",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Start Month",
-        "type": "text",
-        "tableRef": "startmonth",
-        "placeholder": "Enter start month",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Short Loss",
-        "type": "text",
-        "tableRef": "shortloss",
-        "placeholder": "Enter shortloss",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Long Loss",
-        "type": "text",
-        "tableRef": "longloss",
-        "placeholder": "Enter longloss",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
-    },{
-        "name": "Amount",
-        "type": "text",
-        "tableRef": "amount",
-        "placeholder": "Enter amount",
-        "id": "input1",
-        "validation": ["required", "trim", "unique"],
-        "url": ""
+      "name": "Goal Name",
+      "type": "text",
+      "tableRef": "goalName",
+      "placeholder": "Enter goal name",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Inflation",
+      "type": "text",
+      "tableRef": "inflation",
+      "placeholder": "Enter inflation",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Installment",
+      "type": "text",
+      "tableRef": "installment",
+      "placeholder": "Enter installment",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Long Input",
+      "type": "text",
+      "tableRef": "longinput",
+      "placeholder": "Enter longinput",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Lumpsum",
+      "type": "text",
+      "tableRef": "lumpsum",
+      "placeholder": "Enter lumpsum",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Monthly",
+      "type": "text",
+      "tableRef": "monthly",
+      "placeholder": "Enter monthly",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "No of Month",
+      "type": "text",
+      "tableRef": "noOfMonth",
+
+      "placeholder": "Enter no of month",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "No of Installment",
+      "type": "text",
+      "tableRef": "noOfInstallment",
+      "placeholder": "Enter No Of Installment",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Start Month",
+      "type": "text",
+      "tableRef": "startMonth",
+      "placeholder": "Enter start month",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Short Input",
+      "type": "text",
+      "tableRef": "shortinput",
+      "placeholder": "Enter shortinput",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
+    }, {
+      "name": "Withdrawal Frequency",
+      "type": "text",
+      "tableRef": "withDrawalFreq",
+      "placeholder": "Enter Withdrawal Freq",
+      "id": "input1",
+      "validation": ["required", "trim", "unique"],
+      "url": ""
     }],
     "action": [{
         "name": "submit",
@@ -131,7 +124,7 @@
     }],
 
     "apiCall": {
-        "url": "funds/save"
+        "url": "portfolio/save"
     },
 
     "sidemenu": [{
