@@ -13,12 +13,13 @@
                                 <label for="{{field.id}}"><b>{{field.name}}</b></label>
                                 <input name="{{field.name}}" ng-model="field.model" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
+                            <div ng-if="field.type=='hiddendropdown'" ng-init="field.model=idForCreate">
+                                <input name="{{field.name}}" ng-model="field.model" type="hidden" class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
                             <!-- // SELECT -->
                             <div ng-if="field.type=='selectFromTable'">
                                 <label for="{{field.id}}">{{field.name}} </label>
                                 <br>
-                                <!-- <select ng-model="field.model" ng-options="item._id as item.name for item in field.url">
-                                </select> -->
                                 <select ng-model="field.model">
                                     <option value="">SELECT</option>
                                     <option ng-repeat="item in dropdownvalues track by $index" value="{{item._id}}">
@@ -38,12 +39,12 @@
                             </div>
                             <!-- // SELECT FROM DATE-->
                             <div ng-if="field.type=='date'">
-                           <md-datepicker ng-model="field.model" md-placeholder="Enter date"></md-datepicker>
+                                <md-datepicker ng-model="field.model" md-placeholder="Enter date"></md-datepicker>
                             </div>
 
                             <div ng-if="field.type=='image'">
 
-                              {{field}}
+                                {{field}}
                                 <label for="">Upload Image</label>
 
                                 <!-- <img ng-src="{{field.image|uploadpath}}"> -->
@@ -54,7 +55,10 @@
                         </div>
                         <div class="upload-img text-center mar30">
                             <button class="btn btn-sm btn-info" ng-class="{'disabled' : !plan.$valid }" ng-click="makeReadyForApi()">Save</button>
-                            <a ui-sref="{{json.action[1].stateName}}">
+                            <a ui-sref="{{json.action[1].stateName}}" ng-if="!json.action[1].type">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                            <a ng-click="goToCancelPageCreate()" ng-if="json.action[1].type">
                                 <button class="btn btn-sm btn-info">Cancel</button>
                             </a>
                         </div>

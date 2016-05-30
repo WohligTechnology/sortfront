@@ -76,14 +76,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var idForCreate = $location.absUrl().split('%C2%A2')[1];
 
         console.log(idForCreate);
-        if(idForCreate){
-          $scope.goToCreatePage=function(){
-            console.log("In create");
-              $location.url("/page/"+$scope.json.createButtonUrl+idForCreate);
-          };
+        $scope.idForCreate=idForCreate;
+        if (idForCreate) {
+            $scope.goToCreatePage = function() {
+                console.log("In create");
+                $location.url("/page/" + $scope.json.createButtonUrl + idForCreate);
+            };
+
         }
         if (data.pageType == "create") {
-
+            $scope.goToCancelPageCreate = function() {
+                $location.url("/page/" + $scope.json.action[1].url + idForCreate);
+            };
             _.each($scope.json.fields, function(n) {
                 if (n.type == "select") {
                     n.model = "";
@@ -120,17 +124,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (data.pageType == "edit") {
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             var urlid2 = $location.absUrl().split('%C2%A2')[2];
-            console.log($scope.json.action[1].url+urlid2);
-            if(urlid2){
-              $scope.goToCancelPage=function(){
-                  $scope.cancelUrl=$scope.json.action[1].url+urlid2;
-                  console.log(  $scope.cancelUrl);
-                  $location.url("/page/"+$scope.json.action[1].url+urlid2);
-              };
+            console.log($scope.json.action[1].url + urlid2);
+            if (urlid2) {
+                $scope.goToCancelPage = function() {
+                    $scope.cancelUrl = $scope.json.action[1].url + urlid2;
+                    console.log($scope.cancelUrl);
+                    $location.url("/page/" + $scope.json.action[1].url + urlid2);
+                };
 
             }
             console.log(urlid1);
             console.log(urlid2);
+            $scope.idForEdit=urlid2;
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
 
                 $scope.json.editData = data.data;
@@ -238,7 +243,13 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     };
 
     $scope.makeReadyForApi = function() {
+        $scope.urlid = $location.absUrl().split('%C2%A2')[1];
+        $scope.urlid2 = $location.absUrl().split('%C2%A2')[2];
+        console.log($scope.urlid2);
         var data = {};
+        if(document.getElementById("funds")){
+          console.log(document.getElementById("funds").value);
+        }
         if ($scope.json.pageType !== 'edit') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
             _.each($scope.json.fields, function(n) {
@@ -261,9 +272,18 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             // showToast("Project Saved Successfully");
             console.log("Success");
-            $state.go("page", {
-                jsonName: $scope.json.jsonPage
-            });
+            if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
+                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
+
+            }
+            else if($scope.json.action[0].submitUrl && $scope.urlid2) {
+                $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
+            } else {
+                $state.go("page", {
+                    jsonName: $scope.json.jsonPage
+                });
+            }
+
         }, function() {
             // showToast("Error saving the Project");
             console.log("Fail");

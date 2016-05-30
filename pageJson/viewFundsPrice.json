@@ -24,7 +24,7 @@
 		"icon": "delete",
 		"color": "red",
 		"action": "apiCallConfirm",
-		"title": "Delete FundsPrice",
+		"title": "Delete Funds Price",
 		"content": "Are you sure you want to delete funds price?",
 		"api": "fundsprice/delete",
 		"fieldsToSend": [{

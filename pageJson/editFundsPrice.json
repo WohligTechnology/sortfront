@@ -15,12 +15,13 @@
         "model": "_id"
     }, {
         "name": "Funds",
-        "type": "selectFromTable",
+        "type": "hiddendropdown",
         "tableRef": "funds",
         "placeholder": "Enter funds",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "funds/getAll"
+        "url": "funds/getAll",
+        "model": "funds"
     }, {
         "name": "Price",
         "type": "text",
@@ -33,12 +34,14 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitUser"
+        "action": "submitUser",
+        "type": "type2",
+        "submitUrl": "viewFundsPrice%C2%A2"
     }, {
         "name": "cancel",
         "action": "cancelUser",
-        "type":"type2",
-        "url":"viewFundsPrice%C2%A2"
+        "type": "type2",
+        "url": "viewFundsPrice%C2%A2"
     }],
     "apiCall": {
         "url": "fundsprice/save",

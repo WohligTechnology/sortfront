@@ -29,7 +29,7 @@
 		"color": "red",
 		"action": "apiCallConfirm",
 		"title": "Delete Funds",
-		"content": "Are you sure you want to delete user?",
+		"content": "Are you sure you want to delete funds?",
 		"api": "funds/delete",
 		"fieldsToSend": [{
 			"name": "_id",

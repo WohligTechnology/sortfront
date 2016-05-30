@@ -5,7 +5,7 @@
     "pageType": "create",
     "fields": [{
         "name": "Funds",
-        "type": "selectFromTable",
+        "type": "hiddendropdown",
         "tableRef": "funds",
         "placeholder": "Enter funds",
         "id": "input1",
@@ -22,10 +22,13 @@
     }],
     "action": [{
         "name": "submit",
-        "action": "submitUser"
+        "action": "submitUser",
+        "type":"type2",
+        "submitUrl":"viewFundsPrice%C2%A2"
     }, {
         "name": "cancel",
-        "stateName": "page({jsonName:'viewFundsPrice'})"
+        "type":"type2",
+        "url":"viewFundsPrice%C2%A2"
     }],
 
     "apiCall": {

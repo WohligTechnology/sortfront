@@ -22,16 +22,21 @@
                             <div ng-if="field.type=='hidden'">
                                 <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
+                            <div ng-if="field.type=='hiddendropdown'">
+                                <input ng-model="json.editData[field.model]" type="hidden" class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
+                            </div>
                             <div ng-if="field.type=='date'">
                                 <md-datepicker ng-model="json.editData[field.model]" md-placeholder="Enter date"></md-datepicker>
                             </div>
 
                             <!-- // SELECT -->
                             <div ng-if="field.type=='selectFromTable'">
-                                <label for="{{field.id}}">{{field.name}} </label>
+
+                                <label for="{{field.id}}">{{field.name}}</label>
                                 <br>
                                 <!-- <select ng-model="field.model" ng-options="item._id as item.name for item in field.url">
                                 </select> -->
+
                                 <select ng-model="json.editData[field.model]">{{json.editData[field.model]}}
                                     <option value="">SELECT</option>
                                     <option ng-repeat="item in dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
@@ -45,7 +50,7 @@
                             <div ng-if="field.type=='select'">
                                 <label for="{{field.id}}">{{field.name}} </label>
                                 <br>
-                                <select ng-model="json.editData[field.model]">{{json.editData}}
+                                <select ng-model="json.editData[field.model]">
                                     <option ng-repeat="item in field.url track by $index" value="{{item.name}}" ng-selected="{{ item.name.Selected == true }}">
                                         {{item.name}}
                                     </option>
