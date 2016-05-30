@@ -37,6 +37,11 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         templateUrl: "views/template.html",
         controller: 'APICtrl'
     })
+    // .state('page1', {
+    //     url: "/page/:jsonName/:id",
+    //     templateUrl: "views/template.html",
+    //     controller: 'jsonViewCtrl'
+    // })
 
     .state('page', {
         url: "/page/:jsonName",

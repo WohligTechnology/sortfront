@@ -1,11 +1,11 @@
 {
-    "title": "Create Funds",
+    "title": "Create Fund Price",
     "jsonPage": "viewFunds",
     "desciption": "",
     "pageType": "create",
     "fields": [{
         "name": "Funds",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "funds",
         "placeholder": "Enter funds",
         "id": "input1",

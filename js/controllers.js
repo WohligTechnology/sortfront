@@ -73,7 +73,17 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         if ($scope.json.sidemenu && $scope.json.sidemenu.length > 0) {
             $scope.sidemenuThere = true;
         }
+        var idForCreate = $location.absUrl().split('%C2%A2')[1];
+
+        console.log(idForCreate);
+        if(idForCreate){
+          $scope.goToCreatePage=function(){
+            console.log("In create");
+              $location.url("/page/"+$scope.json.createButtonUrl+idForCreate);
+          };
+        }
         if (data.pageType == "create") {
+
             _.each($scope.json.fields, function(n) {
                 if (n.type == "select") {
                     n.model = "";
@@ -110,6 +120,15 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         } else if (data.pageType == "edit") {
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             var urlid2 = $location.absUrl().split('%C2%A2')[2];
+            console.log($scope.json.action[1].url+urlid2);
+            if(urlid2){
+              $scope.goToCancelPage=function(){
+                  $scope.cancelUrl=$scope.json.action[1].url+urlid2;
+                  console.log(  $scope.cancelUrl);
+                  $location.url("/page/"+$scope.json.action[1].url+urlid2);
+              };
+
+            }
             console.log(urlid1);
             console.log(urlid2);
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
@@ -166,7 +185,6 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
 
             NavigationService.findProjects($scope.apiName, pagination, function(data) {
                 $scope.json.tableData = data.data.data;
-                console.log($scope.json.tableData);
             }, function() {
                 console.log("Fail");
             });

@@ -15,7 +15,7 @@
         "model": "_id"
     }, {
         "name": "Funds",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "funds",
         "placeholder": "Enter funds",
         "id": "input1",
@@ -37,7 +37,8 @@
     }, {
         "name": "cancel",
         "action": "cancelUser",
-        "stateName": "page({jsonName:'viewFundsPrice'})"
+        "type":"type2",
+        "url":"viewFundsPrice%C2%A2"
     }],
     "apiCall": {
         "url": "fundsprice/save",

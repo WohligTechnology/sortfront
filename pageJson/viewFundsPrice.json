@@ -5,7 +5,7 @@
 	"fields": [{
 		"name": "Fund",
 		"isSort": "",
-		"tableRef": "funds"
+		"tableRef": "funds.name"
 	}, {
 		"name": "Price",
 		"isSort": "",
@@ -17,7 +17,7 @@
 		"color": "blue",
 		"action": "redirect",
 		"jsonPage": "editFundsPrice",
-		"fieldsToSend": ["_id","funds"],
+		"fieldsToSend": ["_id","funds._id"],
 		"callFindOne": "fundsprice/getOne"
 	}, {
 		"name": "delete",
@@ -57,7 +57,8 @@
 		"url": "fundsprice/findLimited",
 		"params": ""
 	},
-	"createButtonState": "page({jsonName:'createFundsPrice'})",
+	"createButtonState": "",
+	"createButtonUrl": "createFundsPrice%C2%A2",
 	"sidemenu": [{
 		"name":"Funds Details",
 		"action":"sidemenuRedirect",

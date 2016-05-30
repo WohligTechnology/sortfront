@@ -74,7 +74,11 @@
             </div> -->
                         <div class="upload-img text-center mar30">
                             <button class="btn btn-sm btn-info" ng-class="{'disabled' : !plan.$valid }" ng-click="makeReadyForApi()">Save</button>
-                            <a ui-sref="{{json.action[1].stateName}}">
+                            <a ui-sref="{{json.action[1].stateName}}" ng-if="!json.action[1].type">
+                                <button class="btn btn-sm btn-info">Cancel</button>
+                            </a>
+                            <!-- <a ui-sref="{{json.action[1].stateName}}" ng-if="json.action[1].type">{{json.action[1].stateName}}{{urlid2}} -->
+                            <a ng-click="goToCancelPage()" ng-if="json.action[1].type">
                                 <button class="btn btn-sm btn-info">Cancel</button>
                             </a>
                         </div>

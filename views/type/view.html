@@ -15,20 +15,24 @@
                 <tr ng-repeat="result in json.tableData">
                     <td ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</td>
                     <td ng-repeat="action in json.action" ng-click="performAction(action,result)">
-                      <md-button aria-label="Expand" class="md-icon-button" >
-                        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
-                      </md-button>
+                        <md-button aria-label="Expand" class="md-icon-button">
+                            <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+                        </md-button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
     </md-list>
-    <a ui-sref="{{json.createButtonState}}">
-    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
+    <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState!==''">
+        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
+            <md-icon class="fa fa-plus plus-icon"></md-icon>
+        </md-button>
+    </a>
+
+    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users" ng-click="goToCreatePage()" ng-if="json.createButtonState==''">
         <md-icon class="fa fa-plus plus-icon"></md-icon>
     </md-button>
-  </a>
 </section>
 
 
