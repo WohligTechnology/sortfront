@@ -1,153 +1,154 @@
 {
-	"title": "Edit PortFolio",
-	"jsonPage": "viewPortFolio",
-	"desciption": "",
-	"pageType": "edit",
-	"urlFields": ["_id"],
-	"fields": [{
-		"name": "User",
-		"type": "selectFromTable",
-		"tableRef": "user",
-		"model": "user",
-		"placeholder": "Enter user",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": "user/getAll"
-	}, {
-		"name": "Status",
-		"type": "select",
-		"tableRef": "status",
-		"model": "status",
-		"placeholder": "Enter name",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": [{
-			"value": "true",
-			"name": "true"
-		}, {
-			"value": "false",
-			"name": "false"
-		}]
-	}, {
-		"name": "Goal Name",
-		"type": "text",
-		"tableRef": "goalName",
-		"model": "goalName",
-		"placeholder": "Enter goal name",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Inflation",
-		"type": "text",
-		"tableRef": "inflation",
-		"model": "inflation",
-		"placeholder": "Enter inflation",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Installment",
-		"type": "text",
-		"tableRef": "installment",
-		"model": "installment",
-		"placeholder": "Enter installment",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Long Input",
-		"type": "text",
-		"tableRef": "longinput",
-		"model": "longinput",
-		"placeholder": "Enter longinput",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Lumpsum",
-		"type": "text",
-		"tableRef": "lumpsum",
-		"model": "lumpsum",
-		"placeholder": "Enter lumpsum",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Monthly",
-		"type": "text",
-		"tableRef": "monthly",
-		"model": "monthly",
-		"placeholder": "Enter monthly",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "No of Month",
-		"type": "text",
-		"tableRef": "noOfMonth",
-		"model": "noOfMonth",
-		"placeholder": "Enter no of month",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "No of Installment",
-		"type": "text",
-		"tableRef": "noOfInstallment",
-		"model": "noOfInstallment",
-		"placeholder": "Enter No Of Installment",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Start Month",
-		"type": "text",
-		"tableRef": "startMonth",
-		"model": "startMonth",
-		"placeholder": "Enter start month",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Short Input",
-		"type": "text",
-		"tableRef": "shortinput",
-		"model": "shortinput",
-		"placeholder": "Enter shortinput",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}, {
-		"name": "Withdrawal Frequency",
-		"type": "text",
-		"tableRef": "withdrawalfrequency",
-		"model": "withdrawalfrequency",
-		"placeholder": "Enter Withdrawal Freq",
-		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
-	}],
-	"action": [{
-		"name": "submit",
-		"action": "submitUser"
-	}, {
-		"name": "cancel",
-		"action": "cancelUser",
-		"stateName": "page({jsonName:'viewPortFolio'})"
-	}],
-	"apiCall": {
-		"url": "portfolio/save",
-		"params": "_id"
-	},
-	"preApi": {
-		"url": "portfolio/getOne",
-		"params": "_id"
-	},
-	"sidemenu": [{
-		"url": "",
-		"anchor": "",
-		"state": "",
-		"action": ""
-	}]
+    "title": "Edit PortFolio",
+    "jsonPage": "viewPortFolio",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "User",
+        "type": "selectFromTable",
+        "tableRef": "user",
+        "model": "user",
+        "modelDot": "user",
+        "placeholder": "Enter user",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": "user/getAll"
+    }, {
+        "name": "Status",
+        "type": "select",
+        "tableRef": "status",
+        "model": "status",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "true",
+            "name": "true"
+        }, {
+            "value": "false",
+            "name": "false"
+        }]
+    }, {
+        "name": "Goal Name",
+        "type": "text",
+        "tableRef": "goalName",
+        "model": "goalName",
+        "placeholder": "Enter goal name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Inflation",
+        "type": "text",
+        "tableRef": "inflation",
+        "model": "inflation",
+        "placeholder": "Enter inflation",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Installment",
+        "type": "text",
+        "tableRef": "installment",
+        "model": "installment",
+        "placeholder": "Enter installment",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Long Input",
+        "type": "text",
+        "tableRef": "longinput",
+        "model": "longinput",
+        "placeholder": "Enter longinput",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Lumpsum",
+        "type": "text",
+        "tableRef": "lumpsum",
+        "model": "lumpsum",
+        "placeholder": "Enter lumpsum",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Monthly",
+        "type": "text",
+        "tableRef": "monthly",
+        "model": "monthly",
+        "placeholder": "Enter monthly",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "No of Month",
+        "type": "text",
+        "tableRef": "noOfMonth",
+        "model": "noOfMonth",
+        "placeholder": "Enter no of month",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "No of Installment",
+        "type": "text",
+        "tableRef": "noOfInstallment",
+        "model": "noOfInstallment",
+        "placeholder": "Enter No Of Installment",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Start Month",
+        "type": "text",
+        "tableRef": "startMonth",
+        "model": "startMonth",
+        "placeholder": "Enter start month",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Short Input",
+        "type": "text",
+        "tableRef": "shortinput",
+        "model": "shortinput",
+        "placeholder": "Enter shortinput",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Withdrawal Frequency",
+        "type": "text",
+        "tableRef": "withdrawalfrequency",
+        "model": "withdrawalfrequency",
+        "placeholder": "Enter Withdrawal Freq",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewPortFolio'})"
+    }],
+    "apiCall": {
+        "url": "portfolio/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "portfolio/getOne",
+        "params": "_id"
+    },
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
 }

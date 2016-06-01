@@ -5,7 +5,7 @@
 	"fields": [{
 		"name": "User",
 		"isSort": "",
-		"tableRef": "user"
+		"tableRef": "user.name"
 	}, {
 		"name": "Goal Name",
 		"isSort": "",

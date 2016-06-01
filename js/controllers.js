@@ -4,7 +4,7 @@ var mockURL = adminURL + "callApi/";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload'])
 
-.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
+.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout, $state) {
     $scope.menutitle = NavigationService.makeactive("Login");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
@@ -121,13 +121,23 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             _.each($scope.json.fields, function(n) {
                 if (n.type == "selectFromTable") {
                     NavigationService.getDropDown(n.url, function(data) {
+                      console.log(data);
+                        n.dropdownvalues= [];
                         if (data) {
-                            for (var i = 0; i < data.data.length; i++) { 
-                                $scope.dropdown = {};
-                                $scope.dropdown._id = data.data[i]._id;
-                                $scope.dropdown.name = data.data[i].name;
-                                $scope.dropdownvalues.push($scope.dropdown);
-                                console.log($scope.dropdownvalues);
+                            for (var i = 0; i < data.data.length; i++) {
+
+
+                                var dropdown = {};
+                                dropdown._id = data.data[i]._id;
+                                if(!n.dropDownName)
+                                {
+                                    dropdown.name = data.data[i].name;
+                                }
+                                else {
+                                    dropdown.name = data.data[i][n.dropDownName];
+                                }
+
+                                n.dropdownvalues.push(dropdown);
                             }
 
 
@@ -199,7 +209,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                     $scope.pagination1._id = urlid1;
                     NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
                         if (data.data.nominee) {
-                            $scope.json.tableData = data.data.nominee;
+                            $scope.json.tableData = data.data;
                             console.log("IF");
                             console.log($scope.json.tableData);
                         }
@@ -573,7 +583,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('HeaderCtrl', function($scope, TemplateService,$state,NavigationService) {
+.controller('HeaderCtrl', function($scope, TemplateService, $state, NavigationService) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);

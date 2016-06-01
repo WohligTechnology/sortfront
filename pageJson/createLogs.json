@@ -26,7 +26,8 @@
         "placeholder": "Enter portfolio",
         "id": "input3",
         "validation": [],
-        "url": "portfolio/getAll"
+        "url": "portfolio/getAll",
+        "dropDownName":"goalName"
     }, {
         "name": "Quantity",
         "type": "text",

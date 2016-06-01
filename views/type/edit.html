@@ -15,7 +15,7 @@
                                 <label for="{{field.id}}">{{field.name}}</label>
                                 <input ng-model="json.editData[field.model]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
-                            <div ng-if="(field.type=='text' || field.type=='email') && field.modelDot"> 
+                            <div ng-if="(field.type=='text' || field.type=='email') && field.modelDot">
                                 <label for="{{field.id}}">{{field.name}}</label>
                                 <input ng-model="json.editData[field.model][field.modelDot]" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
@@ -25,9 +25,9 @@
                             <div ng-if="field.type=='hiddendropdown'">
                                 <input ng-model="json.editData[field.model]" type="hidden" class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
                             </div>
-                            <div ng-if="field.type=='date'">
+                            <!-- <div ng-if="field.type=='date'">
                                 <md-datepicker ng-model="json.editData[field.model]" md-placeholder="Enter date"></md-datepicker>
-                            </div>
+                            </div> -->
 
                             <!-- // SELECT -->
                             <div ng-if="field.type=='selectFromTable'">
