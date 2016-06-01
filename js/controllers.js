@@ -4,10 +4,28 @@ var mockURL = adminURL + "callApi/";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload'])
 
-.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout) {
+.controller('LoginCtrl', function($scope, TemplateService, NavigationService, $timeout,$state) {
     $scope.menutitle = NavigationService.makeactive("Login");
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
+    $scope.successmsg = "";
+
+    $scope.user = '';
+    $scope.submitLogin = function(user) {
+        NavigationService.submitLogin(user, function(data) {
+            console.log(data);
+            if (data.value === true) {
+                $state.go("page", {
+                    jsonName: "userView"
+                });
+                $.jStorage.set("user", data);
+            } else if (data.value === false) {
+                $scope.successmsg = "Email or Password is wrong";
+            }
+        }, function() {
+            console.log("Fail");
+        });
+    };
 })
 
 .controller('UsersCtrl', function($scope, TemplateService, NavigationService, $timeout) {
@@ -76,7 +94,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         var idForCreate = $location.absUrl().split('%C2%A2')[1];
 
         console.log(idForCreate);
-        $scope.idForCreate=idForCreate;
+        $scope.idForCreate = idForCreate;
         if (idForCreate) {
             $scope.goToCreatePage = function() {
                 console.log("In create");
@@ -104,7 +122,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 if (n.type == "selectFromTable") {
                     NavigationService.getDropDown(n.url, function(data) {
                         if (data) {
-                            for (var i = 0; i < data.data.length; i++) {
+                            for (var i = 0; i < data.data.length; i++) { 
                                 $scope.dropdown = {};
                                 $scope.dropdown._id = data.data[i]._id;
                                 $scope.dropdown.name = data.data[i].name;
@@ -135,7 +153,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             }
             console.log(urlid1);
             console.log(urlid2);
-            $scope.idForEdit=urlid2;
+            $scope.idForEdit = urlid2;
             NavigationService.findOneProject($scope.json.preApi.url, urlParams, function(data) {
 
                 $scope.json.editData = data.data;
@@ -173,17 +191,32 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             // SIDE MENU DATA
             var urlid1 = $location.absUrl().split('%C2%A2')[1];
             // var urlid2 = $location.absUrl().split('%C2%A2')[2];
-
+            $scope.pagination1 = {};
             if (urlid1) {
                 $scope.api1 = $scope.json.sidemenu[1].callFindOne;
-                console.log($scope.api1);
-                pagination._id = urlid1;
-                NavigationService.sideMenu1($scope.api1, pagination, function(data) {
-                    $scope.json.tableData = data.data.data;
-                    console.log($scope.json.tableData);
-                }, function() {
-                    console.log("Fail");
-                });
+                if ($scope.json.sidemenu[1].sendParam && $scope.json.sidemenu[1].sendParam !== '') {
+                    // ARRAY
+                    $scope.pagination1._id = urlid1;
+                    NavigationService.sideMenu1($scope.api1, $scope.pagination1, function(data) {
+                        if (data.data.nominee) {
+                            $scope.json.tableData = data.data.nominee;
+                            console.log("IF");
+                            console.log($scope.json.tableData);
+                        }
+                    }, function() {
+                        console.log("fail");
+                    });
+                } else {
+                    console.log("ELSE");
+                    pagination._id = urlid1;
+                    NavigationService.sideMenu1($scope.api1, pagination, function(data) {
+                        $scope.json.tableData = data.data.data;
+                        console.log($scope.json.tableData);
+
+                    }, function() {
+                        console.log("fail");
+                    });
+                }
             }
             // call api for view data
             $scope.apiName = $scope.json.apiCall.url;
@@ -247,8 +280,8 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
         $scope.urlid2 = $location.absUrl().split('%C2%A2')[2];
         console.log($scope.urlid2);
         var data = {};
-        if(document.getElementById("funds")){
-          console.log(document.getElementById("funds").value);
+        if (document.getElementById("funds")) {
+            console.log(document.getElementById("funds").value);
         }
         if ($scope.json.pageType !== 'edit') {
             // CONVERT MODEL NAMES SAME AS FIELD NAMES
@@ -275,8 +308,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
             if ($scope.json.action[0].submitUrl && $scope.urlid && !$scope.urlid2) {
                 $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid);
 
-            }
-            else if($scope.json.action[0].submitUrl && $scope.urlid2) {
+            } else if ($scope.json.action[0].submitUrl && $scope.urlid2) {
                 $location.url("/page/" + $scope.json.action[0].submitUrl + $scope.urlid2);
             } else {
                 $state.go("page", {
@@ -541,9 +573,26 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     $scope.navigation = NavigationService.getnav();
 })
 
-.controller('HeaderCtrl', function($scope, TemplateService) {
+.controller('HeaderCtrl', function($scope, TemplateService,$state,NavigationService) {
     $scope.template = TemplateService;
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
         $(window).scrollTop(0);
     });
+    if ($.jStorage.get("user") === null) {
+        $state.go("login");
+    }
+    $scope.logOut = function() {
+        NavigationService.logout(function(data) {
+            console.log(data);
+            if (data.value === true) {
+                $.jStorage.flush();
+                $state.go("login");
+
+            } else if (data.value === false) {
+                $window.location.reload();
+            }
+        }, function() {
+            console.log("Fail");
+        });
+    };
 });

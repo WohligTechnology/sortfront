@@ -1,0 +1,41 @@
+{
+    "title": "Create Notification",
+    "jsonPage": "viewNotification",
+    "desciption": "",
+    "pageType": "create",
+    "fields": [{
+        "name": "Title",
+        "type": "text",
+        "tableRef": "title",
+        "placeholder": "Enter title",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Body",
+        "type": "textarea",
+        "tableRef": "body",
+        "placeholder": "Enter body",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "stateName": "page({jsonName:'viewNotification'})"
+    }],
+
+    "apiCall": {
+        "url": "user/saveNotification"
+    },
+
+    "sidemenu": [{
+        "url": "",
+        "anchor": "",
+        "state": "",
+        "action": ""
+    }]
+}

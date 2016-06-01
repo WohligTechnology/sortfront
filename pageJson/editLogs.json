@@ -7,30 +7,33 @@
     "fields": [{
         "name": "User",
         "type": "selectFromTable",
-        "tableRef": "user",
+        "tableRef": "user.name",
         "model": "user",
+          "modelDot": "name",
         "placeholder": "Enter user",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "user/getAll"
     }, {
         "name": "Fund",
         "type": "selectFromTable",
-        "tableRef": "fund",
-        "model": "fund",
+        "tableRef": "funds.name",
+        "model": "funds",
+          "modelDot": "name",
         "placeholder": "Enter fund",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "funds/getAll"
     }, {
         "name": "Portfolio",
         "type": "selectFromTable",
-        "tableRef": "portfolio",
+        "tableRef": "portfolio.goalName",
         "model": "portfolio",
+          "modelDot": "goalName",
         "placeholder": "Enter portfolio",
         "id": "input3",
         "validation": [],
-        "url":""
+        "url": "portfolio/getAll"
     },{
         "name": "Quantity",
         "type": "text",

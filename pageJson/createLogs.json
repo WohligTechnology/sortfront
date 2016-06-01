@@ -10,7 +10,7 @@
         "placeholder": "Enter user",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "user/getAll"
     }, {
         "name": "Fund",
         "type": "selectFromTable",
@@ -18,7 +18,7 @@
         "placeholder": "Enter fund",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": ""
+        "url": "funds/getAll"
     }, {
         "name": "Portfolio",
         "type": "selectFromTable",
@@ -26,8 +26,8 @@
         "placeholder": "Enter portfolio",
         "id": "input3",
         "validation": [],
-        "url":""
-    },{
+        "url": "portfolio/getAll"
+    }, {
         "name": "Quantity",
         "type": "text",
         "tableRef": "quantity",
@@ -35,7 +35,7 @@
         "id": "input1",
         "validation": ["required", "trim", "unique"],
         "url": ""
-    },{
+    }, {
         "name": "Amount",
         "type": "text",
         "tableRef": "amount",

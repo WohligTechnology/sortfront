@@ -50,11 +50,5 @@
     "preApi": {
         "url": "fundsprice/getOne",
         "params": "_id"
-    },
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

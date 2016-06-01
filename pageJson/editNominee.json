@@ -1,0 +1,117 @@
+{
+    "title": "Edit Nominee",
+    "jsonPage": "viewNominee",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Name",
+        "type": "text",
+        "tableRef": "name",
+        "model": "name",
+        "placeholder": "Enter name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Guardian Name",
+        "type": "text",
+        "tableRef": "guardianname",
+        "model": "guardianname",
+        "placeholder": "Enter guardian name",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Guardian Pan",
+        "type": "text",
+        "tableRef": "guardianpan",
+        "model": "guardianpan",
+        "placeholder": "Enter guardian pan",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Dob",
+        "type": "date",
+        "tableRef": "dob",
+        "model": "dob",
+        "placeholder": "Enter dob",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Relationship",
+        "type": "select",
+        "tableRef": "relationship",
+        "model": "relationship",
+        "placeholder": "Enter relationship",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": [{
+            "value": "Friend",
+            "name": "Friend"
+        }, {
+            "value": "Relative",
+            "name": "Relative"
+        }]
+    }, {
+        "name": "Address",
+        "type": "textarea",
+        "tableRef": "address",
+        "model": "address",
+        "placeholder": "Enter address",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "City",
+        "type": "text",
+        "tableRef": "city",
+        "model": "city",
+        "placeholder": "Enter city",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Pincode",
+        "type": "text",
+        "tableRef": "city",
+        "model": "city",
+        "placeholder": "Enter city",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewNominee'})"
+    }],
+    "apiCall": {
+        "url": "funds/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "funds/getOne",
+        "params": "_id"
+    },
+
+    "sidemenu": [{
+      "name":"Nominee Details",
+      "action":"sidemenuRedirect",
+      "jsonPage":"editNominee",
+      "fieldsToSend":[1],
+      "callFindOne":"funds/getOne"
+    },
+    {
+      "name":"Fund Price",
+      "action":"sidemenuRedirect",
+      "jsonPage":"viewNomineePrice",
+      "fieldsToSend":[1],
+      "callFindOne":"fundsprice/findlimited"
+    }]
+}

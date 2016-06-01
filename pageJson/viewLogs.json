@@ -5,15 +5,15 @@
 	"fields": [{
 		"name": "User",
 		"isSort": "",
-		"tableRef": "user"
+		"tableRef": "user.name"
 	}, {
 		"name": "Fund",
 		"isSort": "",
-		"tableRef": "funds"
+		"tableRef": "funds.name"
 	}, {
 		"name": "Portfolio",
 		"isSort": "",
-		"tableRef": "portfolio"
+		"tableRef": "portfolio.goalName"
 	}, {
 		"name": "Quantity",
 		"isSort": "",

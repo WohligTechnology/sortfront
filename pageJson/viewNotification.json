@@ -1,0 +1,83 @@
+{
+    "title": "All Notifications",
+    "desciption": "",
+    "pageType": "view",
+    "fields": [{
+        "name": "Title",
+        "isSort": "",
+        "tableRef": "title"
+    }],
+    "action": [{
+        "name": "edit",
+        "icon": "mode_edit",
+        "color": "blue",
+        "action": "redirect",
+        "jsonPage": "editNotification",
+        "fieldsToSend": ["_id"],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "delete",
+        "icon": "delete",
+        "color": "red",
+        "action": "apiCallConfirm",
+        "title": "Delete Logs",
+        "content": "Are you sure you want to delete notification?",
+        "api": "user/deleteNotification",
+        "fieldsToSend": [{
+            "name": "_id",
+            "value": "_id"
+
+        }]
+    }],
+    "button": [{
+        "name": "excelexport",
+        "icon": "print",
+        "color": "blue",
+        "action": "excelexport"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "filter": [{
+        "name": "category",
+        "url": "http://192.168.1.127:1337/Accounts/getAll"
+    }, {
+        "name": "uploadcsv",
+        "icon": "delete",
+        "color": "red",
+        "action": "uploadcsv"
+    }],
+    "apiCall": {
+        "url": "user/getAllNotification",
+        "params": ""
+    },
+    "createButtonState": "page({jsonName:'createNotification'})",
+    "sidemenu": [{
+        "name": "User Details",
+        "action": "sidemenuRedirect",
+        "jsonPage": "editUser",
+        "fieldsToSend": [1, 2],
+        "callFindOne": "user/getOne"
+    }, {
+        "name": "Notification",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewNotification",
+        "fieldsToSend": [1],
+        "callFindOne": "user/getAllNotification",
+        "sendParam": "type2"
+    }, {
+        "name": "Portfolios",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewPortfolio",
+        "fieldsToSend": [1, 2],
+        "callFindOne": "user/findLimited"
+    }, {
+        "name": "Notification",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewNotification",
+        "fieldsToSend": [1, 2],
+        "callFindOne": "user/findLimited"
+    }]
+}

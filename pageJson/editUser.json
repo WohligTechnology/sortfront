@@ -78,13 +78,19 @@
             "url": ""
         }, {
             "name": "Gender",
-            "type": "text",
+            "type": "select",
             "tableRef": "gender",
             "model": "gender",
             "placeholder": "Enter gender",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
-            "url": ""
+            "url": [{
+                "value": "Male",
+                "name": "Male"
+            }, {
+                "value": "Female",
+                "name": "Female"
+            }]
         }, {
             "name": "Political Views",
             "type": "text",
@@ -144,7 +150,7 @@
             "type": "text",
             "tableRef": "documents.addressproof",
             "model": "documents",
-            "modelDot":"addressproof",
+            "modelDot": "addressproof",
             "placeholder": "Enter address proof",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
@@ -154,7 +160,7 @@
             "type": "text",
             "tableRef": "documents.corraddressproof",
             "model": "documents",
-            "modelDot":"corraddressproof",
+            "modelDot": "corraddressproof",
             "placeholder": "Enter corressponding address proof",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
@@ -174,7 +180,7 @@
             "type": "text",
             "tableRef": "documents.bankname",
             "model": "documents",
-            "modelDot":"bankname",
+            "modelDot": "bankname",
             "placeholder": "Enter bank name",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
@@ -184,7 +190,7 @@
             "type": "text",
             "tableRef": "documents.pan",
             "model": "documents",
-            "modelDot":"pan",
+            "modelDot": "pan",
             "placeholder": "Enter pan",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
@@ -194,7 +200,7 @@
             "type": "text",
             "tableRef": "documents.cancelledcheque",
             "model": "documents",
-            "modelDot":"cancelledcheque",
+            "modelDot": "cancelledcheque",
             "placeholder": "Enter cancelled cheque",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
@@ -237,18 +243,28 @@
         "params": "_id"
     },
     "sidemenu": [{
-        "name": "Photo Gallery",
+        "name": "User Details",
         "action": "sidemenuRedirect",
         "jsonPage": "editUser",
         "fieldsToSend": [1, 2],
         "callFindOne": "user/getOne"
     }, {
-        "name": "Image Gallery",
-        "action": "changeActive",
-        "active": "image"
+      "name":"Nominee",
+      "action":"sidemenuRedirect",
+      "jsonPage":"viewNominee",
+      "fieldsToSend":[1],
+      "callFindOne":"user/getAllNominee"
     }, {
-        "name": "Details",
-        "action": "changeActive",
-        "active": "detail"
+        "name": "Portfolios",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewPortfolio",
+        "fieldsToSend": [1, 2],
+        "callFindOne": "user/findLimited"
+    }, {
+        "name": "Notification",
+        "action": "sidemenuRedirect",
+        "jsonPage": "viewNotification",
+        "fieldsToSend": [1, 2],
+        "callFindOne": "user/findLimited"
     }]
 }

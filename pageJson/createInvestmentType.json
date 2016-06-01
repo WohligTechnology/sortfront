@@ -158,12 +158,5 @@
 
 	"apiCall": {
 		"url": "investmenttype/save"
-	},
-
-	"sidemenu": [{
-		"url": "",
-		"anchor": "",
-		"state": "",
-		"action": ""
-	}]
+	}
 }

@@ -33,12 +33,5 @@
 
     "apiCall": {
         "url": "fundsprice/save"
-    },
-
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

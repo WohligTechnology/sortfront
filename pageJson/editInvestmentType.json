@@ -33,12 +33,12 @@
         "model": "lessthan3equity1percent"
     }, {
         "name": "Less than 3 equity 1 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "lessthan3equity1fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "lessthan3equity1fund"
     }, {
         "name": "Less than 3 equity 2 percent",
@@ -51,12 +51,12 @@
         "model": "lessthan3equity2percent"
     }, {
         "name": "Less than 3 equity 2 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "lessthan3equity2fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "lessthan3equity2fund"
     }, {
         "name": "Less than 3 debt 1 percent",
@@ -69,12 +69,12 @@
         "model": "lessthan3debt1percent"
     }, {
         "name": "Less than 3 debt 1 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "lessthan3debt1fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "lessthan3debt1fund"
     }, {
         "name": "Less than 3 debt 2 percent",
@@ -87,12 +87,12 @@
         "model": "lessthan3debt2percent"
     }, {
         "name": "Less than 3 debt 2 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "lessthan3debt2fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll","url": "funds/getAll",
         "model": "lessthan3debt2fund"
     }, {
         "name": "More than 3 equity 1 percent",
@@ -105,12 +105,12 @@
         "model": "morethan3equity1percent"
     }, {
         "name": "More than 3 equity 1 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "morethan3equity1fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll","url": "funds/getAll",
         "model": "morethan3equity1fund"
     }, {
         "name": "More than 3 equity 2 percent",
@@ -124,12 +124,12 @@
     }
     , {
         "name": "More than 3 equity 2 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "morethan3equity2fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "morethan3equity2fund"
     }, {
         "name": "More than 3 debt 1 percent",
@@ -142,12 +142,12 @@
         "model": "morethan3debt1percent"
     }, {
         "name": "More than 3 debt 1 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "morethan3debt1fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "morethan3debt1fund"
     }, {
         "name": "More than 3 debt 2 percent",
@@ -160,12 +160,12 @@
         "model": "morethan3debt2percent"
     }, {
         "name": "More than 3 debt 2 fund",
-        "type": "text",
+        "type": "selectFromTable",
         "tableRef": "morethan3debt2fund",
         "placeholder": "Enter here",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
-        "url": "",
+        "url": "funds/getAll",
         "model": "morethan3debt2fund"
     }, {
         "name": "Equity Percent",
@@ -192,11 +192,5 @@
     "preApi": {
         "url": "investmenttype/getOne",
         "params": "_id"
-    },
-    "sidemenu": [{
-        "url": "",
-        "anchor": "",
-        "state": "",
-        "action": ""
-    }]
+    }
 }

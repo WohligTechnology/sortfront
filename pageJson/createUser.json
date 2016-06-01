@@ -69,12 +69,18 @@
             "url": ""
         }, {
             "name": "Gender",
-            "type": "text",
+            "type": "select",
             "tableRef": "gender",
             "placeholder": "Enter gender",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
-            "url": ""
+            "url": [{
+              "value":"Male",
+                "name": "Male"
+            }, {
+              "value":"Female",
+                "name": "Female"
+            }]
         }, {
             "name": "Political Views",
             "type": "text",
@@ -184,6 +190,14 @@
           "type": "text",
           "tableRef": "referred",
           "placeholder": "Enter referred",
+          "id": "input2",
+          "validation": ["required", "trim", "unique"],
+          "url": ""
+        }, {
+          "name": "Referral Code",
+          "type": "text",
+          "tableRef": "referralCode",
+          "placeholder": "Enter referral code",
           "id": "input2",
           "validation": ["required", "trim", "unique"],
           "url": ""

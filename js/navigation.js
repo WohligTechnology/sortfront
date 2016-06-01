@@ -1,5 +1,5 @@
 // var adminurl = "http://blazen.io/";
-var adminurl = "http://192.168.1.107:1337/";
+var adminurl = "http://localhost:1337/";
 var imgurl = "http://192.168.1.122:81/upload/";
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
@@ -61,6 +61,9 @@ var navigationservice = angular.module('navigationservice', [])
             console.log(urlParams);
             $http.post(adminurl + apiName, urlParams).success(successCallback).error(errorCallback);
         },
+        submitLogin: function(data, successCallback, errorCallback) {
+          $http.post(adminurl + "user/login", data).success(successCallback).error(errorCallback);
+        },
         sideMenu1: function(apiName, pagination, successCallback, errorCallback) {
           $http.post(adminurl + apiName, pagination).success(successCallback).error(errorCallback);
         },
@@ -69,6 +72,9 @@ var navigationservice = angular.module('navigationservice', [])
         },
         getDropDown: function(apiName, successCallback, errorCallback) {
             $http.post(adminurl + apiName).success(successCallback).error(errorCallback);
+        },
+        logout: function( successCallback, errorCallback) {
+          $http.post(adminurl + "user/logout").success(successCallback).error(errorCallback);
         },
 
     };

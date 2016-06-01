@@ -1,0 +1,57 @@
+{
+    "title": "Edit Notification",
+    "jsonPage": "viewNotification",
+    "desciption": "",
+    "pageType": "edit",
+    "urlFields": ["_id"],
+    "fields": [{
+        "name": "Title",
+        "type": "text",
+        "tableRef": "title",
+        "model": "title",
+        "placeholder": "Enter title",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
+        "name": "Body",
+        "type": "textarea",
+        "tableRef": "body",
+        "model": "body",
+        "placeholder": "Enter body",
+        "id": "input1",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }],
+    "action": [{
+        "name": "submit",
+        "action": "submitUser"
+    }, {
+        "name": "cancel",
+        "action": "cancelUser",
+        "stateName": "page({jsonName:'viewNotification'})"
+    }],
+    "apiCall": {
+        "url": "funds/save",
+        "params": "_id"
+    },
+    "preApi": {
+        "url": "funds/getOne",
+        "params": "_id"
+    },
+
+    "sidemenu": [{
+      "name":"Notification Details",
+      "action":"sidemenuRedirect",
+      "jsonPage":"editNotification",
+      "fieldsToSend":[1],
+      "callFindOne":"funds/getOne"
+    },
+    {
+      "name":"Fund Price",
+      "action":"sidemenuRedirect",
+      "jsonPage":"viewNotificationPrice",
+      "fieldsToSend":[1],
+      "callFindOne":"fundsprice/findlimited"
+    }]
+}
