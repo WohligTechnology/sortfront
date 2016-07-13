@@ -1,6 +1,7 @@
 var adminURL = "http://wohlig.io:81/";
 window.uploadurl = "http://192.168.1.122:81/" + "upload/";
 var mockURL = adminURL + "callApi/";
+var fileSrc = "http://localhost/upload/readFile?file=";
 
 angular.module('phonecatControllers', ['templateservicemod', 'navigationservice', 'ngSanitize', 'ngMaterial', 'ngMdIcons', 'ui.sortable', 'angular-clipboard', 'imageupload'])
 
@@ -51,6 +52,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     var urlParams = {};
     $scope.dropdown = {};
     $scope.dropdownvalues = [];
+    $scope.fileSrc = fileSrc;
     $scope.sidemenuVal = $stateParams;
     var jsonParam1 = jsonArr[1];
     var jsonParam2 = jsonArr[2];

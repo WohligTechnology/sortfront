@@ -147,7 +147,7 @@
             "url": ""
         }, {
             "name": "Address proof",
-            "type": "text",
+            "type": "image",
             "tableRef": "documents.addressproof",
             "model": "documents",
             "modelDot": "addressproof",
@@ -157,7 +157,7 @@
             "url": ""
         }, {
             "name": "Corressponding Address proof",
-            "type": "text",
+            "type": "image",
             "tableRef": "documents.corraddressproof",
             "model": "documents",
             "modelDot": "corraddressproof",
@@ -187,7 +187,7 @@
             "url": ""
         }, {
             "name": "Pan",
-            "type": "text",
+            "type": "image",
             "tableRef": "documents.pan",
             "model": "documents",
             "modelDot": "pan",
@@ -197,7 +197,7 @@
             "url": ""
         }, {
             "name": "Cancelled cheque",
-            "type": "text",
+            "type": "image",
             "tableRef": "documents.cancelledcheque",
             "model": "documents",
             "modelDot": "cancelledcheque",

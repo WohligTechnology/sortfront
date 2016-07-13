@@ -59,10 +59,11 @@
                             </div>
 
                             <div ng-if="field.type=='image'">
-                                <!-- <a href=""></a> -->
-                                <label for="">Upload Image</label>
+                                <label for="">{{field.name}}</label>
                                 <!-- <img ng-src="{{field.image|uploadpath}}"> -->
-                                <upload-image ng-model="field.model"></upload-image>
+                                <upload-image ng-model="json.editData[field.model]" no-view></upload-image>
+
+                                <a class="btn btn-sm btn-info" target="_blank" ng-class="{'disabled' : !plan.$valid }" href="{{fileSrc + json.editData[field.model][field.modelDot]}}" >Download</a>
                             </div>
                             <!-- </div> -->
                         </div>
