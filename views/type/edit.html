@@ -39,7 +39,7 @@
 
                                 <select ng-model="json.editData[field.model]">{{json.editData[field.model]}}
                                     <option value="">SELECT</option>
-                                    <option ng-repeat="item in dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
+                                    <option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}" ng-selected="{{ item.name.Selected == true }}">
                                         {{item.name}}
                                     </option>
                                 </select>
@@ -59,6 +59,7 @@
                             </div>
 
                             <div ng-if="field.type=='image'">
+                                <!-- <a href=""></a> -->
                                 <label for="">Upload Image</label>
                                 <!-- <img ng-src="{{field.image|uploadpath}}"> -->
                                 <upload-image ng-model="field.model"></upload-image>

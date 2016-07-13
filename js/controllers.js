@@ -172,26 +172,46 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
                 console.log("Fail");
             });
             // get select fields dropdown
+            // _.each($scope.json.fields, function(n) {
+            //     if (n.type == "selectFromTable") {
+            //         NavigationService.getDropDown(n.url, function(data) {
+            //             if (data) {
+            //                 for (var i = 0; i < data.data.length; i++) {
+            //                     $scope.dropdown = {};
+            //                     $scope.dropdown._id = data.data[i]._id;
+            //                     $scope.dropdown.name = data.data[i].name;
+            //                     $scope.dropdownvalues.push($scope.dropdown);
+            //                     console.log($scope.dropdownvalues);
+            //                 }
+            //             }
+            //         }, function() {
+            //             console.log("Fail");
+            //         });
+            //     }
+            // });
+            // get select fields dropdown
             _.each($scope.json.fields, function(n) {
                 if (n.type == "selectFromTable") {
                     NavigationService.getDropDown(n.url, function(data) {
+                        console.log(data);
+                        n.dropdownvalues = [];
                         if (data) {
                             for (var i = 0; i < data.data.length; i++) {
-                                $scope.dropdown = {};
-                                $scope.dropdown._id = data.data[i]._id;
-                                $scope.dropdown.name = data.data[i].name;
-                                $scope.dropdownvalues.push($scope.dropdown);
-                                console.log($scope.dropdownvalues);
+                                var dropdown = {};
+                                dropdown._id = data.data[i]._id;
+                                if (!n.dropDownName) {
+                                    dropdown.name = data.data[i].name;
+                                } else {
+                                    dropdown.name = data.data[i][n.dropDownName];
+                                }
+                                n.dropdownvalues.push(dropdown);
                             }
-
-
                         }
                     }, function() {
                         console.log("Fail");
                     });
                 }
             });
-
         } else if (data.pageType == "view") {
             var pagination = {
                 "search": "",
