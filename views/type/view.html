@@ -1,157 +1,56 @@
-<!-- // POOJA's COde -->
-
 <section class="md-whiteframe-z1 users">
-    <md-list>
-        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+  <md-list ng-cloak>
+  <div class="clearfix">
+      <md-subheader class="md-no-sticky all-user">{{json.title}}</md-subheader>
+    <div class="flex search-bar" flex="33">
+        <md-autocomplete md-search-text="pagination.search" md-items="result in json.tableData track by $index" md-min-length="0" md-search-text-change="getMoreResults();" placeholder="Search" class="layout-lg">
+        </md-autocomplete>
+    </div>
+  </div>
+    <md-divider></md-divider>
 
-        <table class="responsive-table">
-            <thead>
-                <tr>
-                    <th ng-repeat="field in json.fields">{{field.name}}</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="result in json.tableData">
-                    <td ng-repeat="field in json.fields">{{result|getValue:field.tableRef}}</td>
-                    <td ng-repeat="action in json.action" ng-click="performAction(action,result)">
-                        <md-button aria-label="Expand" class="md-icon-button">
-                            <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
-                        </md-button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <md-list-item class="ls-head secondary-button-padding padlr16">
+      <p ng-repeat="field in json.fields">{{field.name}}</p>
+      <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action">
+        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:black;"></ng-md-icon>
+      </md-button>
+    </md-list-item>
 
-    </md-list>
-    <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">
-        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
-            <md-icon class="fa fa-plus plus-icon"></md-icon>
+    <div ng-hide="json.tableData.length>=0 || json.tableData.cart.length>=0" class="loadingbox">
+      Loading...
+    </div>
+
+    <!-- if Table Sortable -->
+
+    <div ng-model="json.tableData" ui-sortable="sortableOptions" ng-if="json.sortable">
+      <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
+        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+          <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
         </md-button>
-    </a>
+      </md-list-item>
+    </div>
 
-    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users" ng-click="goToCreatePage()" ng-if="json.createButtonState==''">
-        <md-icon class="fa fa-plus plus-icon"></md-icon>
-    </md-button>
-</section>
+    <!-- if Table Not Sortable -->
+
+    <div no-sortable ng-if="!json.sortable">
+      <md-list-item ng-show="json.tableData.length>=0 " ng-repeat="result in json.tableData" class="secondary-button-padding padlr16">
+        <p ng-repeat="field in json.fields">{{result|getValue:field.tableRef:field.type}}</p>
+        <md-button aria-label="Expand" class="md-icon-button" ng-repeat="action in json.action" ng-click="performAction(action,result)">
+          <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
+        </md-button>
+      </md-list-item>
+    </div>
+
+    <uib-pagination ng-if="json.tableData.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
+      ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
 
-
-
-
-
-
-
-
-<!-- <section class="md-whiteframe-z1 users">
-    <md-list>
-        <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
-
-        <table class="responsive-table">
-            <thead>
-                <tr>
-                    <th ng-repeat="field in json.fields">{{field.name}}</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="result in results">
-                    <td ng-repeat="field in json.fields">{{result[field.tableRef]}}</td>
-                    <td ng-repeat="action in json.action">
-                      <md-button aria-label="Expand" class="md-icon-button" >
-                        <ng-md-icon class="" icon="{{action.icon}}" size="20" style="fill:{{action.color}};"></ng-md-icon>
-                      </md-button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-    </md-list>
+  </md-list>
+  <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">
+    <!-- <a ui-sref="{{json.create.createButtonState}}" ng-if="json.create"> -->
     <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add Users">
-        <md-icon class="fa fa-plus plus-icon"></md-icon>
+      <md-icon class="fa fa-plus plus-icon"></md-icon>
     </md-button>
-</section> -->
-
-
-<!-- // JSON BY CHINTAN SIR -->
-
-
-<!-- {
-    "title": "All Users",
-    "desciption": "",
-    "pageType": "view",
-    "fields": [
-      {
-        "name":"id",
-        "isSort":"",
-        "tableRef":"_id"
-      },
-      {
-        "name":"name",
-        "isSort":"",
-        "tableRef":"to"
-      },
-      {
-        "name":"email",
-        "isSort":"",
-        "tableRef":"from"
-      },
-      {
-        "name":"contact",
-        "isSort":"",
-        "tableRef":"reason"
-      }
-
-    ],
-    "action": [
-      {
-        "name":"edit",
-        "icon":"mode_edit",
-        "color":"blue",
-        "action":"editUser"
-      },
-      {
-        "name":"delete",
-        "icon":"delete",
-        "color":"red",
-        "action":"deleteUser"
-      },
-      {
-        "name":"print",
-        "icon":"print",
-        "color":"red",
-        "action":"print"
-      }
-    ],
-    "button": [
-      {
-        "name":"excelexport",
-        "icon":"print",
-        "color":"blue",
-        "action":"excelexport"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-
-    ],
-    "filter": [
-      {
-        "name":"category",
-        "url":"http://192.168.1.127:1337/Accounts/getAll"
-      },
-      {
-        "name":"uploadcsv",
-        "icon":"delete",
-        "color":"red",
-        "action":"uploadcsv"
-      }
-    ],
-    "apiCall": {
-        "url": "http://192.168.1.127:1337/Accounts/getAll",
-        "params": ""
-    }
-} -->
+  </a>
+</section>

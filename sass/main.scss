@@ -1,9 +1,8 @@
+@import "../bower_components/angular-bootstrap/ui-bootstrap-csp.css";
+@import "../bower_components/angular-material/angular-material.min.css";
 @import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "../bower_components/font-awesome/css/font-awesome.min.css";
-@import "../bower_components/angular-material/angular-material.css";
-body {
-
-}
+body {}
 img.loading {
   text-align: center;
   opacity: 1;
@@ -37,7 +36,6 @@ ng-md-icon {
   font-size: 24px;
 }
 .project {
-
   // padding: 20px 40px;
   .single-project {
     margin-bottom: 50px;
@@ -50,32 +48,93 @@ ng-md-icon {
   margin-bottom: 20px;
 }
 .openClose {
-  padding:0px;
+  padding: 0;
   @include transition(all 0.40s ease-in-out);
   &.closeSection {
-    height:0px;
+    height: 0;
   }
   &.openSection {
-    height:302px;
+    height: 302px;
   }
 }
 .openCloseAPI {
-  padding:0px;
+  padding: 0;
   @include transition(all 0.40s ease-in-out);
   &.closeSection {
-    height:0px;
+    height: 0;
   }
   &.openSection {
-    height:595px;
+    height: 595px;
   }
 }
 .md-fab.md-fab-bottom-right.md-primary.fixed {
-  position:fixed;
+  position: fixed;
 }
-.hideme, .hide {
+.hide,
+.hideme {
   display: none;
 }
-
 select {
-  display:block;
+  display: block;
+}
+.padlr16 {
+  padding: 0 16px;
+}
+.padr16 {
+  padding: 0 16px 0 0;
+}
+.ls-head {
+  font-weight: 700;
+}
+.text-right {
+  text-align: right;
+}
+.loadingbox {
+  padding: 20px;
+  text-align: center;
+}
+.pagination-page a , .pagination-prev a, .pagination-next a {
+position: relative;
+float: left;
+padding: .5rem .75rem;
+margin-left: -1px;
+line-height: 1.5;
+color: #0275d8;
+text-decoration: none;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.pagination-page, .pagination-prev, .pagination-next {
+display: inline;
+}
+.pagination {
+display: inline-block;
+padding-left: 0;
+margin-top: 1rem;
+margin-bottom: 1rem;
+border-radius: .25rem;
+}
+.login md-card {
+    margin: 50px auto;
+    width: 420px;
+    padding: 0 20px;
+}
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+.all-user {
+  width: 50%;
+  float: left;
+}
+.search-bar {
+  width: 50%;
+  float: right;
+  .layout-row {
+    width: 100%;
+  }
 }

@@ -37,11 +37,12 @@ firstapp.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
         templateUrl: "views/template.html",
         controller: 'APICtrl'
     })
-    // .state('page1', {
-    //     url: "/page/:jsonName/:id",
-    //     templateUrl: "views/template.html",
-    //     controller: 'jsonViewCtrl'
-    // })
+
+    .state('onlyview', {
+        url: "/onlyview/:id",
+        templateUrl: "views/template.html",
+        controller: 'onlyViewPageCtrl'
+    })
 
     .state('page', {
         url: "/page/:jsonName",
@@ -70,15 +71,56 @@ firstapp.filter('uploadpath', function() {
         }
     };
 });
+//
+// firstapp.filter('getValue', function($filter) {
+//     return function(input, keyVal, type) {
+//         if (keyVal) {
+//             var keyArr = keyVal.split(".");
+//             var returnValue = input;
+//             _.each(keyArr, function(n) {
+//                 returnValue = returnValue[n];
+//             });
+//             if (type != "image") {
+//                 if (returnValue == true) {
+//                     returnValue = "Enabled";
+//                 } else if (returnValue == false) {
+//                     returnValue = "Disabled";
+//                 }
+//                 return returnValue;
+//             } else {
+//                 return $filter("uploadpath")(returnValue, 100, 100, "fill");
+//             }
+//         }
+//
+//     };
+// });
 
-firstapp.filter('getValue', function() {
-    return function(input, keyVal) {
-          var keyArr = keyVal.split(".");
-          var returnValue = input;
-          _.each(keyArr, function(n) {
-              returnValue = returnValue[n];
-          });
-          return returnValue;
+firstapp.filter('getValue', function($filter) {
+    return function(input, keyVal, type) {
+        if (keyVal) {
+            var keyArr = keyVal.split(".");
+            var returnValue = input;
+            _.each(keyArr, function(n) {
+                returnValue = returnValue[n];
+            });
+            if (type == "date") {
+                // console.log('in date');
+                // return new Date(returnValue);
+                return $filter("date")(returnValue, "dd-MM-yyyy");
+            }if (type == "longdate") {
+                // console.log('in date');
+                // return new Date(returnValue);
+                return $filter("date")(returnValue, "longDate");
+            }if(type == "time"){
+              // console.log('in time');
+              return $filter("date")(returnValue, "shortTime");
+            } if (type != "image") {
+                return returnValue;
+            } else {
+                return $filter("uploadpath")(returnValue, 100, 100, "fill");
+            }
+        }
+
     };
 });
 
@@ -94,7 +136,7 @@ firstapp.directive('imageonload', function() {
     };
 });
 
-firstapp.directive('uploadImage', function($http,$filter) {
+firstapp.directive('uploadImage', function($http, $filter) {
     return {
         templateUrl: 'views/directive/uploadFile.html',
         scope: {
@@ -111,19 +153,18 @@ firstapp.directive('uploadImage', function($http,$filter) {
             if (attrs.noView || attrs.noView === "") {
                 $scope.noShow = true;
             }
-            if($scope.model)
-            {
-              if(_.isArray($scope.model))
-              {
-                $scope.image=[];
-                _.each($scope.model,function(n) {
-                  $scope.image.push({url:$filter("uploadpath")(n)});
-                });
-              }
-              else {
-                $scope.image={};
-                $scope.image.url=$filter("uploadpath")($scope.model);
-              }
+            if ($scope.model) {
+                if (_.isArray($scope.model)) {
+                    $scope.image = [];
+                    _.each($scope.model, function(n) {
+                        $scope.image.push({
+                            url: $filter("uploadpath")(n)
+                        });
+                    });
+                } else {
+                    $scope.image = {};
+                    $scope.image.url = $filter("uploadpath")($scope.model);
+                }
 
             }
             if (attrs.inobj || attrs.inobj === "") {
