@@ -45,6 +45,7 @@ angular.module('phonecatControllers', ['templateservicemod', 'navigationservice'
     //Used to name the .html file
     $scope.template = TemplateService.changecontent("users");
     $scope.menutitle = NavigationService.makeactive("Users");
+    $scope.fileSrc = fileSrc;
     TemplateService.title = $scope.menutitle;
     $scope.navigation = NavigationService.getnav();
     var jsonArr = $stateParams.jsonName.split("¢");

@@ -76,8 +76,8 @@
     }, {
         "name": "Pincode",
         "type": "text",
-        "tableRef": "city",
-        "model": "city",
+        "tableRef": "pincode",
+        "model": "pincode",
         "placeholder": "Enter city",
         "id": "input1",
         "validation": ["required", "trim", "unique"],
@@ -92,11 +92,11 @@
         "stateName": "page({jsonName:'viewNominee'})"
     }],
     "apiCall": {
-        "url": "funds/save",
+        "url": "user/saveNominee",
         "params": "_id"
     },
     "preApi": {
-        "url": "funds/getOne",
+        "url": "user/findOneNominee",
         "params": "_id"
     },
 
@@ -105,13 +105,13 @@
       "action":"sidemenuRedirect",
       "jsonPage":"editNominee",
       "fieldsToSend":[1],
-      "callFindOne":"funds/getOne"
+      "callFindOne":"user/findOneNominee"
     },
     {
       "name":"Fund Price",
       "action":"sidemenuRedirect",
       "jsonPage":"viewNomineePrice",
       "fieldsToSend":[1],
-      "callFindOne":"fundsprice/findlimited"
+      "callFindOne":"userprice/findlimited"
     }]
 }

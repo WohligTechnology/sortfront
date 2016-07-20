@@ -1,98 +1,77 @@
-<section>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <strong>{{json.title}}</strong>
+<section class="md-whiteframe-z1 users">
+  <md-list ng-cloak>
+    <md-subheader class="md-no-sticky">{{json.title}}</md-subheader>
+    <md-divider></md-divider>
+  </md-list>
+
+  <form name="plan" class="padlr16">
+    <md-input-container class="md-block" ng-repeat="field in json.fields">
+      <div ng-if="field.type=='hidden'">
+        <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+      </div>
+      <div ng-if="field.type=='text' || field.type=='email' || field.type=='password'">
+        <label>{{field.name}}</label>
+        <input ng-model="field.model" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+      </div>
+
+      <div ng-if="field.type=='textarea'">
+        <label>{{field.name}}</label>
+        <textarea style="height:100px;" ng-model="field.model" name="{{field.name}}" id="{{field.id}}"></textarea>
+      </div>
+      <div ng-if="field.type=='readonly'">
+        <label>{{field.name}}</label>
+        <input ng-model="field.model" type="text" readonly="true" name="{{field.name}}" id="{{field.id}}">
+      </div>
+      <!-- // SELECT FROM TABLE-->
+      <div ng-if="field.type=='selectFromTable'">
+        <label for="{{field.id}}">{{field.name}} </label>
+        <br>
+        <div ng-if="field.option=='multiple'">
+          <md-select ng-model="field.model" multiple>
+            <md-optgroup>
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
+            </md-optgroup>
+          </md-select>
         </div>
-        <div class="panel-body">
-
-            <div class="row">
-                <div class="col-md-8">
-                    <form name="plan">
-                        <div class="form-group" ng-repeat="field in json.fields track by $index">
-                            <div ng-if="field.type=='text' || field.type=='email'">
-                                <label for="{{field.id}}"><b>{{field.name}}</b></label>
-                                <input name="{{field.name}}" ng-model="field.model" type={{field.type}} class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
-                            </div>
-                            <div ng-if="field.type=='hiddendropdown'" ng-init="field.model=idForCreate">
-                                <input name="{{field.name}}" ng-model="field.model" type="hidden" class="form-control" id="{{field.id}}" placeholder="{{field.placeholder}}">
-                            </div>
-                            <!-- // SELECT -->
-                            <div ng-if="field.type=='selectFromTable'">
-                                <label for="{{field.id}}">{{field.name}} </label>
-
-                                <br>
-                                <select ng-model="field.model">
-                                    <option value="">SELECT</option>
-
-                                    <option ng-repeat="item in field.dropdownvalues track by $index" value="{{item._id}}">
-                                        {{item.name}}
-                                    </option>
-                                </select>
-                                <br>
-                            </div>
-                            <!-- // SELECT FROM TABLE-->
-                            <div ng-if="field.type=='select'">
-                                <label for="{{field.id}}">{{field.name}} </label>
-                                <br>{{optionitem}}
-                                <select ng-model="field.model" ng-options="item.value as item.name for item in field.url">
-                                </select>
-
-                                <br>
-                            </div>
-                            <!-- // SELECT FROM DATE-->
-                            <div ng-if="field.type=='date'">
-                                <md-datepicker ng-model="field.model" md-placeholder="Enter date"></md-datepicker>
-                            </div>
-
-                            <div ng-if="field.type=='image'">
-
-                                {{field}}
-                                <label for="">Upload Image</label>
-
-                                <!-- <img ng-src="{{field.image|uploadpath}}"> -->
-                                <upload-image ng-model="field.model"></upload-image>
-
-
-                            </div>
-                        </div>
-                        <div class="upload-img text-center mar30">
-                            <button class="btn btn-sm btn-info" ng-class="{'disabled' : !plan.$valid }" ng-click="makeReadyForApi()">Save</button>
-                            <a ui-sref="{{json.action[1].stateName}}" ng-if="!json.action[1].type">
-                                <button class="btn btn-sm btn-info">Cancel</button>
-                            </a>
-                            <a ng-click="goToCancelPageCreate()" ng-if="json.action[1].type">
-                                <button class="btn btn-sm btn-info">Cancel</button>
-                            </a>
-                        </div>
-                        <!-- <button class="btn btn-sm btn-info" ng-click="makeReadyForApi()" >
-                          API</button> -->
-                    </form>
-                </div>
-            </div>
-
-
-            <!-- <div class="text-center" ng-show="formComplete">
-              <h3>Submitted Successfully, Thank You!</h3>
-          </div> -->
-
+        <div ng-if="field.option=='single'">
+          <md-select ng-model="field.model">
+            <md-optgroup>
+              <md-option value="{{item._id}}" ng-repeat="item in field.dropdownvalues track by $index">{{item.name}}</md-option>
+            </md-optgroup>
+          </md-select>
         </div>
-    </div>
+        <br>
+      </div>
+      <!-- // SELECT-->
+      <div ng-if="field.type=='select'">
+        <label for="{{field.id}}">{{field.name}} </label>
+        <br>
+        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="field.model" ng-options="item.value as item.name for item in field.url">
+        </select>
+
+        <br>
+      </div>
+
+      <div ng-if="field.type=='image'">
+        <label for="">Upload Image</label>
+        <!-- <img ng-src="{{field.image|uploadpath}}"> -->
+        <upload-image ng-model="field.model" no-view multiple inobj></upload-image>
+        <div class="" ng-repeat="img in field.model" ng-if="field.model">
+          <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
+        </div>
+      </div>
+    </md-input-container>
+    <!--
+    <div ng-if="field.type=='image'">
+        <label for="">Upload Image</label>
+        <img ng-src="{{field.image|uploadpath}}">
+        <upload-image ng-model="field.model"></upload-image>
+    </div> -->
+
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button class="md-raised md-primary" ng-click="makeReadyForApi()" ng-class="{'disabled' : !plan.$valid }">Save</md-button>
+      <md-button class="md-raised md-warn" ui-sref="{{json.action[1].stateName}}">Cancel</md-button>
+    </section>
+
+  </form>
 </section>
-
-
-<!-- <div class="form-group">
-<label for="exampleInputName2">Name</label>
-<input name="name" capitalize-first required ng-model="results.tableRef.from" type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name">
-<div class="error-msg" ng-show="plan.name.$error.required && plan.name.$touched">Please Enter Your Name.</div>
-</div> -->
-<!-- <div class="form-group">
-<label for="exampleInputName2">Name</label>
-<input name="email" capitalize-first required ng-model="results.tableRef.from" type="text" class="form-control" id="exampleInputName2" placeholder="Enter email">
-<div class="error-msg" ng-show="plan.name.$error.required && plan.name.$touched">Please Enter Your Name.</div>
-</div> -->
-<!-- <div class="form-group">
-<label>Description</label>
-<textarea name="description" ng-model="results.tableRef.to" class="form-control" required></textarea>
-<div class="error-msg" ng-show="plan.description.$error.required && plan.description.$touched">Please Enter Description.
-</div>
-</div> -->

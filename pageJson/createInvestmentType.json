@@ -21,12 +21,14 @@
 		"url": ""
 	}, {
 		"name": "Less than 3 equity 1 fund",
-		"type": "text",
+		"type": "selectFromTable",
+		"option": "single",
+"url": "funds/getAll",
+		"model": "lessthan3equity1fund",
 		"tableRef": "lessthan3equity1fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "Less than 3 equity 2 percent",
 		"type": "text",
@@ -39,10 +41,13 @@
 		"name": "Less than 3 equity 2 fund",
 		"type": "text",
 		"tableRef": "lessthan3equity2fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "lessthan3equity2fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "less than 3 debt 1 percent",
 		"type": "text",
@@ -55,10 +60,13 @@
 		"name": "less than 3 debt 1 fund",
 		"type": "text",
 		"tableRef": "lessthan3debt1fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "lessthan3debt1fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "less than 3 debt 2 percent",
 		"type": "text",
@@ -71,10 +79,13 @@
 		"name": "less than 3 debt 2 fund",
 		"type": "text",
 		"tableRef": "lessthan3debt2fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "lessthan3debt2fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "more than 3 equity 1 percent",
 		"type": "text",
@@ -87,10 +98,13 @@
 		"name": "more than 3 equity 1 fund",
 		"type": "text",
 		"tableRef": "morethan3equity1fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "morethan3equity1fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "more than 3 equity 2 percent",
 		"type": "text",
@@ -103,10 +117,13 @@
 		"name": "more than 3 equity 2 fund",
 		"type": "text",
 		"tableRef": "morethan3equity2fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "morethan3equity2fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "more than 3 debt 1 percent",
 		"type": "text",
@@ -119,10 +136,13 @@
 		"name": "more than 3 debt 1 fund",
 		"type": "text",
 		"tableRef": "morethan3debt1fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "morethan3debt1fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "more than 3 debt 2 percent",
 		"type": "text",
@@ -135,10 +155,13 @@
 		"name": "more than 3 debt 2 fund",
 		"type": "text",
 		"tableRef": "morethan3debt2fund",
+		"type": "selectFromTable",
+		"option": "single",
+		"url": "funds/getAll",
+		"model": "morethan3debt2fund",
 		"placeholder": "Enter here",
 		"id": "input1",
-		"validation": ["required", "trim", "unique"],
-		"url": ""
+		"validation": ["required", "trim", "unique"]
 	}, {
 		"name": "Equity Percent",
 		"type": "text",

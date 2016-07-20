@@ -2,22 +2,23 @@
     "title": "All Nominees",
     "desciption": "",
     "pageType": "view",
+    "sendIdWithCreate": true,
+    "urlFields": ["_id"],
     "fields": [{
         "name": "Name",
         "isSort": "",
-        "tableRef": "name"
+        "tableRef": "name",
+        "type": ""
     }, {
-        "name": "Guardian Name",
+        "name": "Pincode",
         "isSort": "",
-        "tableRef": "guardianName"
+        "tableRef": "pincode",
+        "type": ""
     }, {
-        "name": "Guardian Pan",
+        "name": "Relationship",
         "isSort": "",
-        "tableRef": "guardianPan"
-    }, {
-        "name": "City",
-        "isSort": "",
-        "tableRef": "city"
+        "tableRef": "relationship",
+        "type": ""
     }],
     "action": [{
         "name": "edit",
@@ -26,47 +27,25 @@
         "action": "redirect",
         "jsonPage": "editNominee",
         "fieldsToSend": ["_id"],
-        "callFindOne": "user/getOne"
+        "callFindOne": "user/findOneNominee"
     }, {
         "name": "delete",
         "icon": "delete",
         "color": "red",
         "action": "apiCallConfirm",
-        "title": "Delete Logs",
-        "content": "Are you sure you want to delete nominee?",
+        "title": "Delete User",
+        "content": "Are you sure you want to delete user?",
         "api": "user/deleteNominee",
         "fieldsToSend": [{
             "name": "_id",
             "value": "_id"
-
         }]
     }],
-    "button": [{
-        "name": "excelexport",
-        "icon": "print",
-        "color": "blue",
-        "action": "excelexport"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
-    "filter": [{
-        "name": "category",
-        "url": "http://192.168.1.127:1337/Accounts/getAll"
-    }, {
-        "name": "uploadcsv",
-        "icon": "delete",
-        "color": "red",
-        "action": "uploadcsv"
-    }],
     "apiCall": {
-        "url": "user/getAllNominee",
-        "params": ""
+        "url": "user/findNominee",
+        "params": "_id"
     },
-    "createButtonState": "",
-    	"createButtonUrl": "createNominee%C2%A2",
+
     "sidemenu": [{
         "name": "User Details",
         "action": "sidemenuRedirect",
@@ -74,12 +53,11 @@
         "fieldsToSend": [1, 2],
         "callFindOne": "user/getOne"
     }, {
-        "name": "Nominee",
-        "action": "sidemenuRedirect",
-        "jsonPage": "viewNominee",
-        "fieldsToSend": [1],
-        "callFindOne": "user/getAllNominee",
-        "sendParam":"type2"
+      "name":"Nominee",
+      "action":"sidemenuRedirect",
+      "jsonPage":"viewNominee",
+      "fieldsToSend":[1],
+      "callFindOne":"user/getAllNominee"
     }, {
         "name": "Portfolios",
         "action": "sidemenuRedirect",
@@ -92,5 +70,6 @@
         "jsonPage": "viewNotification",
         "fieldsToSend": [1, 2],
         "callFindOne": "user/findLimited"
-    }]
+    }],
+    "createButtonState": "page({jsonName:'createNominee'})"
 }

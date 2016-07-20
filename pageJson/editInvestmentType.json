@@ -34,6 +34,8 @@
     }, {
         "name": "Less than 3 equity 1 fund",
         "type": "selectFromTable",
+        "option": "single",
+        "option": "single",
         "tableRef": "lessthan3equity1fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -52,6 +54,7 @@
     }, {
         "name": "Less than 3 equity 2 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "lessthan3equity2fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -70,6 +73,7 @@
     }, {
         "name": "Less than 3 debt 1 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "lessthan3debt1fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -88,6 +92,7 @@
     }, {
         "name": "Less than 3 debt 2 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "lessthan3debt2fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -106,6 +111,7 @@
     }, {
         "name": "More than 3 equity 1 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "morethan3equity1fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -125,6 +131,7 @@
     , {
         "name": "More than 3 equity 2 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "morethan3equity2fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -143,6 +150,7 @@
     }, {
         "name": "More than 3 debt 1 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "morethan3debt1fund",
         "placeholder": "Enter here",
         "id": "input1",
@@ -161,6 +169,7 @@
     }, {
         "name": "More than 3 debt 2 fund",
         "type": "selectFromTable",
+        "option": "single",
         "tableRef": "morethan3debt2fund",
         "placeholder": "Enter here",
         "id": "input1",
