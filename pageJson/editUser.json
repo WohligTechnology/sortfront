@@ -85,10 +85,10 @@
             "id": "input2",
             "validation": ["required", "trim", "unique"],
             "url": [{
-                "value": "Male",
+                "value": "male",
                 "name": "Male"
             }, {
-                "value": "Female",
+                "value": "female",
                 "name": "Female"
             }]
         }, {
@@ -167,7 +167,7 @@
             "url": ""
         }, {
             "name": "Address type",
-            "type": "text",
+            "type": "textobject",
             "tableRef": "documents.addresstype",
             "modelDot": "addresstype",
             "model": "documents",
@@ -177,14 +177,788 @@
             "url": ""
         }, {
             "name": "Bank name",
-            "type": "text",
+            "type": "selectobject",
             "tableRef": "documents.bankname",
             "model": "documents",
             "modelDot": "bankname",
             "placeholder": "Enter bank name",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
-            "url": ""
+            "url":   [{
+                "value": "Abhyudaya Co-Operative Bank",
+                "name": "Abhyudaya Co-Operative Bank"
+              }, {
+                "value": "Abu Dhabi Commercial Bank",
+                "name": "Abu Dhabi Commercial Bank"
+              }, {
+                "value": "Adarniya P.D. Patilsaheb Sahakari Bank Ltd.",
+                "name": "Adarniya P.D. Patilsaheb Sahakari Bank Ltd."
+              }, {
+                "value": "Adarsh Co-Operative Bank Ltd",
+                "name": "Adarsh Co-Operative Bank Ltd"
+              }, {
+                "value": "Ahmednagar Shahar Sahakari Bank Maryadit",
+                "name": "Ahmednagar Shahar Sahakari Bank Maryadit"
+              }, {
+                "value": "Allahabad Bank",
+                "name": "Allahabad Bank"
+              }, {
+                "value": "Ambarnath Jai-Hind Co-Op.Bank Ltd.",
+                "name": "Ambarnath Jai-Hind Co-Op.Bank Ltd."
+              }, {
+                "value": "Andhra Bank",
+                "name": "Andhra Bank"
+              }, {
+                "value": "Andhra Pragathi Grameena Bank",
+                "name": "Andhra Pragathi Grameena Bank"
+              }, {
+                "value": "Apna Sahakari Bank Ltd.",
+                "name": "Apna Sahakari Bank Ltd."
+              }, {
+                "value": "Ashok Sahakari Bank Ltd",
+                "name": "Ashok Sahakari Bank Ltd"
+              }, {
+                "value": "Assam Gramin Vikash Bank",
+                "name": "Assam Gramin Vikash Bank"
+              }, {
+                "value": "Axis Bank",
+                "name": "Axis Bank"
+              }, {
+                "value": "Axis Bank Ltd",
+                "name": "Axis Bank Ltd"
+              }, {
+                "value": "Bank Of America",
+                "name": "Bank Of America"
+              }, {
+                "value": "Bank Of Bahrain & Kuwait",
+                "name": "Bank Of Bahrain & Kuwait"
+              }, {
+                "value": "Bank of Bahrain and Kuwait",
+                "name": "Bank of Bahrain and Kuwait"
+              }, {
+                "value": "Bank Of Baroda",
+                "name": "Bank Of Baroda"
+              }, {
+                "value": "Bank of Baroda - Corporate Banking",
+                "name": "Bank of Baroda - Corporate Banking"
+              }, {
+                "value": "Bank of Baroda - Retail Banking",
+                "name": "Bank of Baroda - Retail Banking"
+              }, {
+                "value": "Bank Of Ceylon",
+                "name": "Bank Of Ceylon"
+              }, {
+                "value": "Bank of India",
+                "name": "Bank of India"
+              }, {
+                "value": "Bank Of India",
+                "name": "Bank Of India"
+              }, {
+                "value": "Bank of Maharashtra",
+                "name": "Bank of Maharashtra"
+              }, {
+                "value": "Bank Of Maharashtra",
+                "name": "Bank Of Maharashtra"
+              }, {
+                "value": "Barclays Bank Plc",
+                "name": "Barclays Bank Plc"
+              }, {
+                "value": "Bassein Catholic Co-Op Bank Ltd",
+                "name": "Bassein Catholic Co-Op Bank Ltd"
+              }, {
+                "value": "Bhagini Nivedita Sahakari Bank Ltd.",
+                "name": "Bhagini Nivedita Sahakari Bank Ltd."
+              }, {
+                "value": "Bnp Paribas",
+                "name": "Bnp Paribas"
+              }, {
+                "value": "Canara Bank",
+                "name": "Canara Bank"
+              }, {
+                "value": "Capital Local Area Bank",
+                "name": "Capital Local Area Bank"
+              }, {
+                "value": "Catholic Syrian Bank",
+                "name": "Catholic Syrian Bank"
+              }, {
+                "value": "Central Bank of India",
+                "name": "Central Bank of India"
+              }, {
+                "value": "Central Bank Of India",
+                "name": "Central Bank Of India"
+              }, {
+                "value": "Citibank N A",
+                "name": "Citibank N A"
+              }, {
+                "value": "City Union Bank",
+                "name": "City Union Bank"
+              }, {
+                "value": "Corporation Bank",
+                "name": "Corporation Bank"
+              }, {
+                "value": "Cosmos Bank",
+                "name": "Cosmos Bank"
+              }, {
+                "value": "Credit Agricole Corporate & Investment Bank",
+                "name": "Credit Agricole Corporate & Investment Bank"
+              }, {
+                "value": "Dcb Bank Ltd",
+                "name": "Dcb Bank Ltd"
+              }, {
+                "value": "Delhi Nagrik Sehkari Bank Ltd",
+                "name": "Delhi Nagrik Sehkari Bank Ltd"
+              }, {
+                "value": "Dena Bank",
+                "name": "Dena Bank"
+              }, {
+                "value": "Dena Bank Net Banking",
+                "name": "Dena Bank Net Banking"
+              }, {
+                "value": "Deutsche Bank",
+                "name": "Deutsche Bank"
+              }, {
+                "value": "Deutsche Bank Ag",
+                "name": "Deutsche Bank Ag"
+              }, {
+                "value": "Development Credit Bank",
+                "name": "Development Credit Bank"
+              }, {
+                "value": "Development Credit Bank - Corporate",
+                "name": "Development Credit Bank - Corporate"
+              }, {
+                "value": "Dhanalaxmi Bank",
+                "name": "Dhanalaxmi Bank"
+              }, {
+                "value": "Dhanlakshmi Bank",
+                "name": "Dhanlakshmi Bank"
+              }, {
+                "value": "Dindigul Central Co-Operative Bank Ltd",
+                "name": "Dindigul Central Co-Operative Bank Ltd"
+              }, {
+                "value": "Dmk Jaoli Bank",
+                "name": "Dmk Jaoli Bank"
+              }, {
+                "value": "Dombivili Nagari Sahakari Bank Ltd.",
+                "name": "Dombivili Nagari Sahakari Bank Ltd."
+              }, {
+                "value": "Federal Bank",
+                "name": "Federal Bank"
+              }, {
+                "value": "Fingrowth Co-Operative Bank Ltd",
+                "name": "Fingrowth Co-Operative Bank Ltd"
+              }, {
+                "value": "George Town Co-Operative Bank Ltd.",
+                "name": "George Town Co-Operative Bank Ltd."
+              }, {
+                "value": "Gopinath Patil Parsik Janata Sahakari Bank",
+                "name": "Gopinath Patil Parsik Janata Sahakari Bank"
+              }, {
+                "value": "Guardian Souharda Sahakari Bank Niyamita",
+                "name": "Guardian Souharda Sahakari Bank Niyamita"
+              }, {
+                "value": "Gurgaon Gramin Bank",
+                "name": "Gurgaon Gramin Bank"
+              }, {
+                "value": "HDFC Bank Ltd",
+                "name": "HDFC Bank Ltd"
+              }, {
+                "value": "Hdfc Bank Ltd",
+                "name": "Hdfc Bank Ltd"
+              }, {
+                "value": "ICICI Bank Ltd",
+                "name": "ICICI Bank Ltd"
+              }, {
+                "value": "Icici Bank Ltd",
+                "name": "Icici Bank Ltd"
+              }, {
+                "value": "IDBI Bank",
+                "name": "IDBI Bank"
+              }, {
+                "value": "Idbi Bank",
+                "name": "Idbi Bank"
+              }, {
+                "value": "Indian Bank",
+                "name": "Indian Bank"
+              }, {
+                "value": "Indian Overseas Bank",
+                "name": "Indian Overseas Bank"
+              }, {
+                "value": "Indraprastha Sehkari Bank Ltd",
+                "name": "Indraprastha Sehkari Bank Ltd"
+              }, {
+                "value": "IndusInd Bank",
+                "name": "IndusInd Bank"
+              }, {
+                "value": "Indusind Bank",
+                "name": "Indusind Bank"
+              }, {
+                "value": "ING Vysya Bank",
+                "name": "ING Vysya Bank"
+              }, {
+                "value": "Ing Vysya Bank Ltd",
+                "name": "Ing Vysya Bank Ltd"
+              }, {
+                "value": "Jalgaon Janata Sahkari Bank Ltd",
+                "name": "Jalgaon Janata Sahkari Bank Ltd"
+              }, {
+                "value": "Jamia Co-Operative Bank Ltd",
+                "name": "Jamia Co-Operative Bank Ltd"
+              }, {
+                "value": "Jammu Bank",
+                "name": "Jammu Bank"
+              }, {
+                "value": "Janakalyan Sahakari Bank",
+                "name": "Janakalyan Sahakari Bank"
+              }, {
+                "value": "Janaseva Sahakari Bank (Borivli) Ltd",
+                "name": "Janaseva Sahakari Bank (Borivli) Ltd"
+              }, {
+                "value": "Janata Co-Op. Bank Ltd, Malegaon.",
+                "name": "Janata Co-Op. Bank Ltd, Malegaon."
+              }, {
+                "value": "Janata Sahakari Bank Ltd.",
+                "name": "Janata Sahakari Bank Ltd."
+              }, {
+                "value": "Jodhpur Nagrik Sahakari Bank Limited",
+                "name": "Jodhpur Nagrik Sahakari Bank Limited"
+              }, {
+                "value": "Kallappanna Awade Ichalkaranji Janatasahakari Bank",
+                "name": "Kallappanna Awade Ichalkaranji Janatasahakari Bank"
+              }, {
+                "value": "Karnataka Bank Ltd",
+                "name": "Karnataka Bank Ltd"
+              }, {
+                "value": "Karnataka Vikas Grameena Bank",
+                "name": "Karnataka Vikas Grameena Bank"
+              }, {
+                "value": "Karur Vysa Bank",
+                "name": "Karur Vysa Bank"
+              }, {
+                "value": "Kotak Bank",
+                "name": "Kotak Bank"
+              }, {
+                "value": "Kotak Mahindra Bank Ltd",
+                "name": "Kotak Mahindra Bank Ltd"
+              }, {
+                "value": "Kurla Nagarik Sahakari Bank Ltd",
+                "name": "Kurla Nagarik Sahakari Bank Ltd"
+              }, {
+                "value": "Laxmi Vilas Bank - Corporate Net Banking",
+                "name": "Laxmi Vilas Bank - Corporate Net Banking"
+              }, {
+                "value": "Laxmi Vilas Bank - Retail Net Banking",
+                "name": "Laxmi Vilas Bank - Retail Net Banking"
+              }, {
+                "value": "Maharashtra Gramin Bank",
+                "name": "Maharashtra Gramin Bank"
+              }, {
+                "value": "Manipur Rural Bank",
+                "name": "Manipur Rural Bank"
+              }, {
+                "value": "Mizuho Bank Ltd.",
+                "name": "Mizuho Bank Ltd."
+              }, {
+                "value": "Mumbai District Central Co-Op Bank Ltd",
+                "name": "Mumbai District Central Co-Op Bank Ltd"
+              }, {
+                "value": "Nagpur Nagarik Sahakari Bank Ltd.",
+                "name": "Nagpur Nagarik Sahakari Bank Ltd."
+              }, {
+                "value": "Narmada Jhabua Gramin Bank",
+                "name": "Narmada Jhabua Gramin Bank"
+              }, {
+                "value": "Navabharat Co-Op. Urban Bank Ltd.",
+                "name": "Navabharat Co-Op. Urban Bank Ltd."
+              }, {
+                "value": "New India Co-Op Bank Ltd",
+                "name": "New India Co-Op Bank Ltd"
+              }, {
+                "value": "Nkgsb Co-Op. Bank Ltd.",
+                "name": "Nkgsb Co-Op. Bank Ltd."
+              }, {
+                "value": "North Malabar Gramin Bank",
+                "name": "North Malabar Gramin Bank"
+              }, {
+                "value": "Nutan Nagarik Sahakari Bank Ltd",
+                "name": "Nutan Nagarik Sahakari Bank Ltd"
+              }, {
+                "value": "Oriental Bank of Commerce",
+                "name": "Oriental Bank of Commerce"
+              }, {
+                "value": "Oriental Bank Of Commerce",
+                "name": "Oriental Bank Of Commerce"
+              }, {
+                "value": "Parshwanath Co-Operative Bank Ltd",
+                "name": "Parshwanath Co-Operative Bank Ltd"
+              }, {
+                "value": "Prathama Bank",
+                "name": "Prathama Bank"
+              }, {
+                "value": "Prime Co-Operative Bank Ltd.",
+                "name": "Prime Co-Operative Bank Ltd."
+              }, {
+                "value": "Priyadarshani Nagari Sahakari Bank Ltd., Jalna.",
+                "name": "Priyadarshani Nagari Sahakari Bank Ltd., Jalna."
+              }, {
+                "value": "Pudukottai District Central Cooperative Bank Ltd",
+                "name": "Pudukottai District Central Cooperative Bank Ltd"
+              }, {
+                "value": "Punjab & Maharashtra Co-Operative Bank",
+                "name": "Punjab & Maharashtra Co-Operative Bank"
+              }, {
+                "value": "Punjab & Sind Bank",
+                "name": "Punjab & Sind Bank"
+              }, {
+                "value": "Punjab Bank",
+                "name": "Punjab Bank"
+              }, {
+                "value": "Punjab Co-op Bank",
+                "name": "Punjab Co-op Bank"
+              }, {
+                "value": "Punjab National Bank",
+                "name": "Punjab National Bank"
+              }, {
+                "value": "Punjab National Bank - Corporate Banking",
+                "name": "Punjab National Bank - Corporate Banking"
+              }, {
+                "value": "Punjab National Bank - Retail Banking",
+                "name": "Punjab National Bank - Retail Banking"
+              }, {
+                "value": "Pusad Urban Co-Op,Bank Ltd.",
+                "name": "Pusad Urban Co-Op,Bank Ltd."
+              }, {
+                "value": "Rajgurunagar Sahakari Bank Ltd",
+                "name": "Rajgurunagar Sahakari Bank Ltd"
+              }, {
+                "value": "Rajkot Nagarik Sahakari Bank Ltd.",
+                "name": "Rajkot Nagarik Sahakari Bank Ltd."
+              }, {
+                "value": "Ratnakar Bank",
+                "name": "Ratnakar Bank"
+              }, {
+                "value": "Sangli Urban Co-Operative Bank Ltd",
+                "name": "Sangli Urban Co-Operative Bank Ltd"
+              }, {
+                "value": "Sant Sopankaka Sahakari Bank Ltd.",
+                "name": "Sant Sopankaka Sahakari Bank Ltd."
+              }, {
+                "value": "Saraswat Bank",
+                "name": "Saraswat Bank"
+              }, {
+                "value": "SCB Net Banking",
+                "name": "SCB Net Banking"
+              }, {
+                "value": "Shamrao Vitthal Co-operative Bank",
+                "name": "Shamrao Vitthal Co-operative Bank"
+              }, {
+                "value": "Shree Mahalaxmi Urban Co-Op Credit Bank Ltd.",
+                "name": "Shree Mahalaxmi Urban Co-Op Credit Bank Ltd."
+              }, {
+                "value": "Shree Warana Sahakari Bank Ltd.",
+                "name": "Shree Warana Sahakari Bank Ltd."
+              }, {
+                "value": "Shri Chhatrapati Rajarshi Shahu Urban Co-Op Bank",
+                "name": "Shri Chhatrapati Rajarshi Shahu Urban Co-Op Bank"
+              }, {
+                "value": "Shri Veershaiv Co-Op Bank Ltd.",
+                "name": "Shri Veershaiv Co-Op Bank Ltd."
+              }, {
+                "value": "Sindhudurg District Central Cooperative Bank Ltd",
+                "name": "Sindhudurg District Central Cooperative Bank Ltd"
+              }, {
+                "value": "Sir M Visvesvaraya Co-Operative Bank Ltd",
+                "name": "Sir M Visvesvaraya Co-Operative Bank Ltd"
+              }, {
+                "value": "South Indian Bank",
+                "name": "South Indian Bank"
+              }, {
+                "value": "Standard Chartered Bank",
+                "name": "Standard Chartered Bank"
+              }, {
+                "value": "State Bank of Bikaner",
+                "name": "State Bank of Bikaner"
+              }, {
+                "value": "State Bank of Hyderabad",
+                "name": "State Bank of Hyderabad"
+              }, {
+                "value": "State Bank of India",
+                "name": "State Bank of India"
+              }, {
+                "value": "State Bank Of India",
+                "name": "State Bank Of India"
+              }, {
+                "value": "State Bank Of Mauritus Ltd.",
+                "name": "State Bank Of Mauritus Ltd."
+              }, {
+                "value": "State Bank of Mysore",
+                "name": "State Bank of Mysore"
+              }, {
+                "value": "State Bank of Patiala",
+                "name": "State Bank of Patiala"
+              }, {
+                "value": "State Bank of Travancore",
+                "name": "State Bank of Travancore"
+              }, {
+                "value": "Suco Souharda Sahakari Bank",
+                "name": "Suco Souharda Sahakari Bank"
+              }, {
+                "value": "Sumitomo Mitsui Banking Corporation",
+                "name": "Sumitomo Mitsui Banking Corporation"
+              }, {
+                "value": "Suvarnayug Sahakari Bank Ltd.",
+                "name": "Suvarnayug Sahakari Bank Ltd."
+              }, {
+                "value": "Syndicate Bank",
+                "name": "Syndicate Bank"
+              }, {
+                "value": "Tamilnad Mercantile Bank Ltd.",
+                "name": "Tamilnad Mercantile Bank Ltd."
+              }, {
+                "value": "Tamilnadu State Apex Co-Op Bank Ltd",
+                "name": "Tamilnadu State Apex Co-Op Bank Ltd"
+              }, {
+                "value": "Tamluk-Ghatal Central Co-Operative Bank Ltd",
+                "name": "Tamluk-Ghatal Central Co-Operative Bank Ltd"
+              }, {
+                "value": "Textile Traders Co-Operative Bank Limited",
+                "name": "Textile Traders Co-Operative Bank Limited"
+              }, {
+                "value": "Thane Bharat Sahakari Bank Ltd.",
+                "name": "Thane Bharat Sahakari Bank Ltd."
+              }, {
+                "value": "The Abhinav Sahakari Bank Limited",
+                "name": "The Abhinav Sahakari Bank Limited"
+              }, {
+                "value": "The Adarsh Cooperative Urban Bank Limited",
+                "name": "The Adarsh Cooperative Urban Bank Limited"
+              }, {
+                "value": "The Agrasen Co-Operative Urban Bank Ltd",
+                "name": "The Agrasen Co-Operative Urban Bank Ltd"
+              }, {
+                "value": "The Ahmedabad Mercantile Co-Op Bank Ltd",
+                "name": "The Ahmedabad Mercantile Co-Op Bank Ltd"
+              }, {
+                "value": "The Amritsar Central Cooperative Bank Limited.",
+                "name": "The Amritsar Central Cooperative Bank Limited."
+              }, {
+                "value": "The Annasaheb Savant Co-Op Urban Bank Mahad Ltd",
+                "name": "The Annasaheb Savant Co-Op Urban Bank Mahad Ltd"
+              }, {
+                "value": "The Aryapuram Cooperative Urban Bank Ltd",
+                "name": "The Aryapuram Cooperative Urban Bank Ltd"
+              }, {
+                "value": "The Bank Of Nova Scotia",
+                "name": "The Bank Of Nova Scotia"
+              }, {
+                "value": "The Baramati Sahakari Bank Ltd",
+                "name": "The Baramati Sahakari Bank Ltd"
+              }, {
+                "value": "The Bathinda Central Co-Operative Bank Ltd.",
+                "name": "The Bathinda Central Co-Operative Bank Ltd."
+              }, {
+                "value": "The Bharat Co-Operative Bank Ltd",
+                "name": "The Bharat Co-Operative Bank Ltd"
+              }, {
+                "value": "The Bicholim Urban Co-Operative Bank Ltd",
+                "name": "The Bicholim Urban Co-Operative Bank Ltd"
+              }, {
+                "value": "The Catholic Syrian Bank",
+                "name": "The Catholic Syrian Bank"
+              }, {
+                "value": "The Chembur Nagarik Sahakari Bank",
+                "name": "The Chembur Nagarik Sahakari Bank"
+              }, {
+                "value": "The Chengelpattu Co-Op Urban Bank Ltd",
+                "name": "The Chengelpattu Co-Op Urban Bank Ltd"
+              }, {
+                "value": "The Chiplun Urban Cooperative Bank Ltd",
+                "name": "The Chiplun Urban Cooperative Bank Ltd"
+              }, {
+                "value": "The Citizen Cooperative Bank Limited",
+                "name": "The Citizen Cooperative Bank Limited"
+              }, {
+                "value": "The Citizens Urban Cooperative Bank Ltd.",
+                "name": "The Citizens Urban Cooperative Bank Ltd."
+              }, {
+                "value": "The Coimbatore District Central Co-Op Bank Limited",
+                "name": "The Coimbatore District Central Co-Op Bank Limited"
+              }, {
+                "value": "The Cosmos Co-Operative Bank Ltd",
+                "name": "The Cosmos Co-Operative Bank Ltd"
+              }, {
+                "value": "The Delhi State Cooperative Bank Limited",
+                "name": "The Delhi State Cooperative Bank Limited"
+              }, {
+                "value": "The Erode District Central Co-Operative Bank Ltd",
+                "name": "The Erode District Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Faridkot Central Co-Operative Bank Ltd.",
+                "name": "The Faridkot Central Co-Operative Bank Ltd."
+              }, {
+                "value": "The Fatehgrah Sahib Central Cooperative Bank",
+                "name": "The Fatehgrah Sahib Central Cooperative Bank"
+              }, {
+                "value": "The Fazilka Central Coop. Bank Ltd",
+                "name": "The Fazilka Central Coop. Bank Ltd"
+              }, {
+                "value": "The Ferozepur Central Coop. Bank Ltd",
+                "name": "The Ferozepur Central Coop. Bank Ltd"
+              }, {
+                "value": "The Gadchiroli District Central Cooperative Bank",
+                "name": "The Gadchiroli District Central Cooperative Bank"
+              }, {
+                "value": "The Gayatri Cooperative Urban Bank Ltd",
+                "name": "The Gayatri Cooperative Urban Bank Ltd"
+              }, {
+                "value": "The Goa State Co-Operative Bank Ltd",
+                "name": "The Goa State Co-Operative Bank Ltd"
+              }, {
+                "value": "The Goa Urban Co-Operative Bank Ltd.",
+                "name": "The Goa Urban Co-Operative Bank Ltd."
+              }, {
+                "value": "The Greater Bombay Co-Operative Bank Limited",
+                "name": "The Greater Bombay Co-Operative Bank Limited"
+              }, {
+                "value": "The Gurdaspur Central Cooperative Bank Ltd",
+                "name": "The Gurdaspur Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Hasti Co-Op. Bank Ltd.",
+                "name": "The Hasti Co-Op. Bank Ltd."
+              }, {
+                "value": "The Hongkong & Shanghai Banking Corporation Ltd",
+                "name": "The Hongkong & Shanghai Banking Corporation Ltd"
+              }, {
+                "value": "The Hoshiarpur Central Co-Operative Bank Ltd",
+                "name": "The Hoshiarpur Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Jalandhar Central Cooperative Bank Limited",
+                "name": "The Jalandhar Central Cooperative Bank Limited"
+              }, {
+                "value": "The Jalgaon Peoples Co Op Bank Ltd",
+                "name": "The Jalgaon Peoples Co Op Bank Ltd"
+              }, {
+                "value": "The Kalupur Commercial Co-Operative Bank",
+                "name": "The Kalupur Commercial Co-Operative Bank"
+              }, {
+                "value": "The Kalyan Janata Sahakari Bank Ltd.",
+                "name": "The Kalyan Janata Sahakari Bank Ltd."
+              }, {
+                "value": "The Kangra Central Co-Operative Bank Ltd",
+                "name": "The Kangra Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Kangra Co-Operative Bank Ltd",
+                "name": "The Kangra Co-Operative Bank Ltd"
+              }, {
+                "value": "The Kapol Co-Operative Bank Ltd.",
+                "name": "The Kapol Co-Operative Bank Ltd."
+              }, {
+                "value": "The Kapurthala Central Cooperative Bank Ltd",
+                "name": "The Kapurthala Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Karad Urban Co-Op Bank Ltd",
+                "name": "The Karad Urban Co-Op Bank Ltd"
+              }, {
+                "value": "The Karnataka State Co-Operative Apex Bank Ltd.",
+                "name": "The Karnataka State Co-Operative Apex Bank Ltd."
+              }, {
+                "value": "The Kottayam District Co-Operative Bank Ltd.",
+                "name": "The Kottayam District Co-Operative Bank Ltd."
+              }, {
+                "value": "The Lakshmi Vilas Bank Ltd.",
+                "name": "The Lakshmi Vilas Bank Ltd."
+              }, {
+                "value": "The Ludhiana Central Cooperative Bank Ltd",
+                "name": "The Ludhiana Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Madgaum Urban Cooperative Bank Ltd",
+                "name": "The Madgaum Urban Cooperative Bank Ltd"
+              }, {
+                "value": "The Madurai District Central Cooperative Bank Ltd",
+                "name": "The Madurai District Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Mahanagar Co-Op. Bank Ltd.",
+                "name": "The Mahanagar Co-Op. Bank Ltd."
+              }, {
+                "value": "The Malkapur Urban Co-Op Bank Ltd",
+                "name": "The Malkapur Urban Co-Op Bank Ltd"
+              }, {
+                "value": "The Mapusa Urban Cooperative Bank Of Goa Ltd",
+                "name": "The Mapusa Urban Cooperative Bank Of Goa Ltd"
+              }, {
+                "value": "The Mehsana Urban Co-Operative Bank",
+                "name": "The Mehsana Urban Co-Operative Bank"
+              }, {
+                "value": "The Moga Central Cooperative Bank Ltd",
+                "name": "The Moga Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Mugberia Central Co-Operative Bank Ltd",
+                "name": "The Mugberia Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Muktsar Central Co-Operated Bank Ltd",
+                "name": "The Muktsar Central Co-Operated Bank Ltd"
+              }, {
+                "value": "The Municipal Co-Op Bank Ltd",
+                "name": "The Municipal Co-Op Bank Ltd"
+              }, {
+                "value": "The Nainital Bank Limited",
+                "name": "The Nainital Bank Limited"
+              }, {
+                "value": "The Nasik Merchants Cooperative Bank Ltd",
+                "name": "The Nasik Merchants Cooperative Bank Ltd"
+              }, {
+                "value": "The Nav Jeevan Co-Op Bank Ltd",
+                "name": "The Nav Jeevan Co-Op Bank Ltd"
+              }, {
+                "value": "The Nawanshahr Central Cooperative Bank Ltd.",
+                "name": "The Nawanshahr Central Cooperative Bank Ltd."
+              }, {
+                "value": "The Odisha State Co-Operative Bank Ltd",
+                "name": "The Odisha State Co-Operative Bank Ltd"
+              }, {
+                "value": "The Panchkula Central Co-Operative Bank Ltd",
+                "name": "The Panchkula Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Patiala Central Cooperative Bank Ltd.",
+                "name": "The Patiala Central Cooperative Bank Ltd."
+              }, {
+                "value": "The Pochampally Cooperative Urban Bank Ltd",
+                "name": "The Pochampally Cooperative Urban Bank Ltd"
+              }, {
+                "value": "The Punjab State Cooperative Bank Ltd",
+                "name": "The Punjab State Cooperative Bank Ltd"
+              }, {
+                "value": "The Rajasthan State Co-Operative Bank Ltd",
+                "name": "The Rajasthan State Co-Operative Bank Ltd"
+              }, {
+                "value": "The Ropar Central Cooperative Bank",
+                "name": "The Ropar Central Cooperative Bank"
+              }, {
+                "value": "The Royal Bank of Scotland",
+                "name": "The Royal Bank of Scotland"
+              }, {
+                "value": "The Royal Bank Of Scotland",
+                "name": "The Royal Bank Of Scotland"
+              }, {
+                "value": "The S.A.S Nagar Central Cooperative Bank Ltd.",
+                "name": "The S.A.S Nagar Central Cooperative Bank Ltd."
+              }, {
+                "value": "The Sahebrao Deshmukh Co-Op. Bank Ltd.",
+                "name": "The Sahebrao Deshmukh Co-Op. Bank Ltd."
+              }, {
+                "value": "The Sahyadri Sahakari Bank Ltd",
+                "name": "The Sahyadri Sahakari Bank Ltd"
+              }, {
+                "value": "The Saidapet Co-Op Urban Bank Ltd",
+                "name": "The Saidapet Co-Op Urban Bank Ltd"
+              }, {
+                "value": "The Salem District Central Co-Operative Bank Ltd",
+                "name": "The Salem District Central Co-Operative Bank Ltd"
+              }, {
+                "value": "The Sangrur Central Co-Operative Bank Ltd.",
+                "name": "The Sangrur Central Co-Operative Bank Ltd."
+              }, {
+                "value": "The Shamrao Vital Co-Operative Bank",
+                "name": "The Shamrao Vital Co-Operative Bank"
+              }, {
+                "value": "The Surat People'S Co-Op. Bank Ltd.",
+                "name": "The Surat People'S Co-Op. Bank Ltd."
+              }, {
+                "value": "The Sutex Co-Op.Bank Ltd.",
+                "name": "The Sutex Co-Op.Bank Ltd."
+              }, {
+                "value": "The Tamilnadu Industrial Cooperative Bank Ltd",
+                "name": "The Tamilnadu Industrial Cooperative Bank Ltd"
+              }, {
+                "value": "The Tarn Taran Central Cooperative Bank Ltd",
+                "name": "The Tarn Taran Central Cooperative Bank Ltd"
+              }, {
+                "value": "The Thane Dist. Central Co-Op. Bank Ltd",
+                "name": "The Thane Dist. Central Co-Op. Bank Ltd"
+              }, {
+                "value": "The Thiruvannamalai District Central Coop Bank Ltd",
+                "name": "The Thiruvannamalai District Central Coop Bank Ltd"
+              }, {
+                "value": "The Tirunelveli District Central Co-Op Bank Ltd",
+                "name": "The Tirunelveli District Central Co-Op Bank Ltd"
+              }, {
+                "value": "The Udaipur Mahila Urban Co-Op Bank Ltd",
+                "name": "The Udaipur Mahila Urban Co-Op Bank Ltd"
+              }, {
+                "value": "The Udaipur Urban Co-Op Bank Ltd",
+                "name": "The Udaipur Urban Co-Op Bank Ltd"
+              }, {
+                "value": "The Varachha Co-Op Bank Ltd",
+                "name": "The Varachha Co-Op Bank Ltd"
+              }, {
+                "value": "The Vellala Co-Operative Bank Limited",
+                "name": "The Vellala Co-Operative Bank Limited"
+              }, {
+                "value": "The Vellore District Central Co-Op Bank Ltd.",
+                "name": "The Vellore District Central Co-Op Bank Ltd."
+              }, {
+                "value": "The Virudhunagar District Central Co-Op Bank Ltd.,",
+                "name": "The Virudhunagar District Central Co-Op Bank Ltd.,"
+              }, {
+                "value": "The Vishweshwar Sahakari Bank Ltd",
+                "name": "The Vishweshwar Sahakari Bank Ltd"
+              }, {
+                "value": "The Wayanad District Co-Operative Bank Ltd.",
+                "name": "The Wayanad District Co-Operative Bank Ltd."
+              }, {
+                "value": "The West Bengal State Co-Op Bank Ltd",
+                "name": "The West Bengal State Co-Op Bank Ltd"
+              }, {
+                "value": "Tiruvallur Co-Operative Urban Bank Limited",
+                "name": "Tiruvallur Co-Operative Urban Bank Limited"
+              }, {
+                "value": "Tjsb Sahakari Bank Ltd",
+                "name": "Tjsb Sahakari Bank Ltd"
+              }, {
+                "value": "TNSC Bank",
+                "name": "TNSC Bank"
+              }, {
+                "value": "Tripura Gramin Bank",
+                "name": "Tripura Gramin Bank"
+              }, {
+                "value": "Tumkur Grain Merchant'S Co-Operate Bank Ltd",
+                "name": "Tumkur Grain Merchant'S Co-Operate Bank Ltd"
+              }, {
+                "value": "UCO Bank",
+                "name": "UCO Bank"
+              }, {
+                "value": "Uco Bank",
+                "name": "Uco Bank"
+              }, {
+                "value": "Union Bank of India",
+                "name": "Union Bank of India"
+              }, {
+                "value": "Union Bank Of India",
+                "name": "Union Bank Of India"
+              }, {
+                "value": "United Bank of India",
+                "name": "United Bank of India"
+              }, {
+                "value": "United Bank Of India",
+                "name": "United Bank Of India"
+              }, {
+                "value": "Vasai Vikas Sahakari Bank Ltd",
+                "name": "Vasai Vikas Sahakari Bank Ltd"
+              }, {
+                "value": "Vijaya Bank",
+                "name": "Vijaya Bank"
+              }, {
+                "value": "Vivekanand Nagrik Sahkari Bank Mydt",
+                "name": "Vivekanand Nagrik Sahkari Bank Mydt"
+              }, {
+                "value": "Yavatmal District Central Co-Operative Bank Ltd",
+                "name": "Yavatmal District Central Co-Operative Bank Ltd"
+              }, {
+                "value": "Yes Bank",
+                "name": "Yes Bank"
+              }, {
+                "value": "Yes Bank Lt",
+                "name": "Yes Bank Lt"
+              }]
         }, {
             "name": "Pan",
             "type": "image",
@@ -214,15 +988,6 @@
             "id": "input2",
             "validation": ["required", "trim", "unique"],
             "url": ""
-        }, {
-            "name": "Referred",
-            "type": "text",
-            "tableRef": "referred",
-            "model": "referred",
-            "placeholder": "Enter referred",
-            "id": "input2",
-            "validation": ["required", "trim", "unique"],
-            "url": ""
         }
 
     ],
@@ -235,7 +1000,7 @@
         "stateName": "page({jsonName:'userView'})"
     }],
     "apiCall": {
-        "url": "user/editProfile",
+        "url": "user/editProfileBackend",
         "params": "_id"
     },
     "preApi": {
@@ -253,7 +1018,7 @@
       "action":"sidemenuRedirect",
       "jsonPage":"viewNominee",
       "fieldsToSend":[1],
-      "callFindOne":"user/getAllNominee"
+      "callFindOne":"user/findNominee"
     }, {
         "name": "Portfolios",
         "action": "sidemenuRedirect",

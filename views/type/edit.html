@@ -13,6 +13,10 @@
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
       </div>
+      <div ng-if="field.type=='textobject'">
+        <label>{{field.name}}</label>
+        <input ng-model="json.editData[field.model][field.modelDot]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+      </div>
 
       <div ng-if="field.type=='textarea'">
         <label>{{field.name}}</label>
@@ -25,12 +29,12 @@
       </div>
 
       <div ng-if="field.type=='image'">
-        <label for="">Upload Image {{json.editData[field.model][field.modelDot]}}</label>
+        <label>{{field.name}}</label>
         <upload-image ng-model="json.editData[field.model]" no-view multiple inobj></upload-image>
         <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
           <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
         </div>
-        <a class="btn btn-sm btn-info" href="{{fileSrc + json.editData[field.model][field.modelDot]}}" >Download</a>
+        <a class="md-button md-raised md-primary" href="{{fileSrc + json.editData[field.model][field.modelDot]}}" >Download</a>
       </div>
 
       <!-- // SELECT FROM TABLE -->
@@ -59,6 +63,13 @@
         <label for="{{field.id}}">{{field.name}} </label>
         <br>
         <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model]" ng-options="item.value as item.name for item in field.url">
+        </select>
+        <br>
+      </div>
+      <div ng-if="field.type=='selectobject'">
+        <label for="{{field.id}}">{{field.name}} </label>
+        <br>
+        <select style="width: 100%;border: none;background: #fff;border-bottom: 1px solid rgb(225, 225, 225);margin-top: 10px; padding2px;" ng-model="json.editData[field.model][field.modelDot]" ng-options="item.value as item.name for item in field.url">
         </select>
         <br>
       </div>
