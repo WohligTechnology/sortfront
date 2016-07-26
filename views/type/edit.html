@@ -13,11 +13,20 @@
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
       </div>
+      <div ng-if="field.type=='tel'">
+        <label>{{field.name}}</label>
+        <input ng-model="json.editData[field.model]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
+      </div>
       <div ng-if="field.type=='textobject'">
         <label>{{field.name}}</label>
         <input ng-model="json.editData[field.model][field.modelDot]" type="{{field.type}}" name="{{field.name}}" id="{{field.id}}">
       </div>
+      <div ng-if="field.type=='date'">
 
+        <label>{{field.name}}</label>
+        <!-- <p ng-bind="json.editData[field.model] | date:'MM/dd/yyyy'"></p> -->
+        <input type="date" ng-model="json.editData[field.model]">
+    </div>
       <div ng-if="field.type=='textarea'">
         <label>{{field.name}}</label>
         <textarea style="height:100px;" ng-model="json.editData[field.model]" name="{{field.name}}" id="{{field.id}}"></textarea>

@@ -14,6 +14,15 @@
         "validation": ["required", "trim", "unique"],
         "url": ""
     }, {
+        "name": "Dob",
+        "type": "date",
+        "tableRef": "dob",
+        "model": "dob",
+        "placeholder": "Enter dob",
+        "id": "input2",
+        "validation": ["required", "trim", "unique"],
+        "url": ""
+    }, {
         "name": "Guardian Name",
         "type": "text",
         "tableRef": "guardianname",

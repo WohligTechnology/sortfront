@@ -23,6 +23,15 @@
             "validation": ["required", "trim", "unique"],
             "url": ""
         }, {
+            "name": "Mobile",
+            "type": "tel",
+            "tableRef": "mobile",
+            "model": "mobile",
+            "placeholder": "Enter mobile",
+            "id": "input2",
+            "validation": ["required", "trim", "unique"],
+            "url": ""
+        }, {
             "name": "Password",
             "type": "password",
             "tableRef": "password",
@@ -139,8 +148,9 @@
         }, {
             "name": "Photo",
             "type": "image",
-            "tableRef": "photo",
-            "model": "photo",
+            "tableRef": "documents.photo",
+            "model": "documents",
+            "modelDot": "photo",
             "placeholder": "Enter photo",
             "id": "input2",
             "validation": ["required", "trim", "unique"],
