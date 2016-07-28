@@ -43,8 +43,7 @@
            </md-button>
        </md-list-item> -->
 
-    <uib-pagination ng-if="result.length>0" total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems"
-      ng-hide="pageInfo.lastpage==1"></uib-pagination>
+            <uib-pagination total-items="pageInfo.totalitems" ng-model="pagination.pagenumber" class="pagination-sm" boundary-link-numbers="true" items-per-page="pagination.pagesize" ng-change="getMoreResults();" max-size="pageInfo.totalitems" ng-hide="pageInfo.lastpage==1"></uib-pagination>
 
   </md-list>
   <a ui-sref="{{json.createButtonState}}" ng-if="json.createButtonState">

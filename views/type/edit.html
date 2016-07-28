@@ -43,7 +43,7 @@
         <div class="" ng-repeat="img in json.editData[field.model]" ng-if="json.editData[field.model]">
           <img ng-src="{{img.image | uploadpath:250:250:'fill'}}" ng-if="img.image" />
         </div>
-        <a class="md-button md-raised md-primary" href="{{fileSrc + json.editData[field.model][field.modelDot]}}" >Download</a>
+        <a class="md-button md-raised md-primary" href="{{fileSrc + json.editData[field.model][field.modelDot]}}" target="_black">Download</a>
       </div>
 
       <!-- // SELECT FROM TABLE -->
