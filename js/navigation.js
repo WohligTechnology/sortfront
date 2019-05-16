@@ -1,6 +1,6 @@
 // var adminurl = "http://blazen.io/";
 // var adminurl = "http://localhost/";
-var adminurl = "http://104.199.142.53/";
+var adminurl = "https://sortvest.wohlig.co.in/api/";
 var imgurl = adminurl+"upload/";
 var imgpath = imgurl + "readFile";
 var navigationservice = angular.module('navigationservice', [])
