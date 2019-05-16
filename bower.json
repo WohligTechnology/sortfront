@@ -33,7 +33,7 @@
     "angular-ui-sortable": "~0.13.4",
     "angular-clipboard": "~1.2.1",
     "js-beautify": "https://github.com/beautify-web/js-beautify.git#~1.5.10",
-    "angularjs-imageupload-directive": "https://github.com/Mischi/angularjs-imageupload-directive.git",
+    "angularjs-imageupload-directive": "https://github.com/WohligTechnology/angularjs-imageupload-directive.git",
     "jStorage": "jstorage#^0.4.12",
     "angular-bootstrap": "^1.3.3"
   },
