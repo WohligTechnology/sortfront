@@ -1,11 +1,7 @@
 server {
-	listen 80;
+        listen 80;
+ 	root /home/projects/sortvest-frontend/production/;
+        index index.html index.htm;
 	server_name sortvest.wohlig.co.in;
-	location / {
-		proxy_pass http://127.0.0.1:82;
-		proxy_set_header Host $host;
-		proxy_set_header X-Real-IP $remote_addr;
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header X-Forwarded-Proto $scheme;
-	}
+	try_files $uri $uri/ /index.html =404;
 }
